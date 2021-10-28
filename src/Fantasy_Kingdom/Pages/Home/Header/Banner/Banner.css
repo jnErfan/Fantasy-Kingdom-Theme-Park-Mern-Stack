@@ -1,0 +1,35 @@
+.banner {
+  background-image: url(./banner.jpg);
+  position: relative;
+  height: 150vh;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  clip-path: polygon(100% 0, 100% 84%, 23% 95%, 0 84%, 0 0);
+}
+.headerTitle {
+  font-size: 4em;
+  margin-left: 2em;
+}
+.sliderLeftButton {
+  margin-right: 100px;
+}
+.sliderRightButton {
+  margin-left: 100px;
+}
+.slider-image {
+  border-radius: 20px;
+  border: 3px solid #0dcaf0;
+}
+@media only screen and (max-width: 688px) {
+  .header-title1 {
+    font-size: 40px;
+    margin-left: 0em;
+  }
+  .headerTitle {
+    font-size: 30px;
+    margin-left: 0em;
+  }
+  .carouselContainer {
+    display: none;
+  }
+}
