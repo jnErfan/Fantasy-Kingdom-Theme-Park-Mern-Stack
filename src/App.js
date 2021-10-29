@@ -12,6 +12,7 @@ import ManageAllOrders from "./Fantasy_Kingdom/Pages/ManageAllOrders/ManageAllOr
 import AddRides from "./Fantasy_Kingdom/Pages/AddRides/AddRides";
 import NotFound from "./Fantasy_Kingdom/Pages/NotFound/NotFound";
 import Navbaar from "./Fantasy_Kingdom/Pages/Home/Header/Navbar/Navbaar";
+import RidesPackage from "./Fantasy_Kingdom/Pages/RidesPackage/RidesPackage";
 // On Scroll Animation
 Aos.init();
 
@@ -31,6 +32,10 @@ function App() {
 
           <Route path="/rides">
             <Rides />
+          </Route>
+
+          <Route path="/ridesPackage">
+            <RidesPackage />
           </Route>
 
           <Route path="/ridesDetails">

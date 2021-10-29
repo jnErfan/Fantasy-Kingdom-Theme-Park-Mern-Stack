@@ -5,7 +5,7 @@ import "./Rides.css";
 const Rides = () => {
   const [ridesPackage, setRidesPackage] = useState([]);
   useEffect(() => {
-    fetch("./data.json")
+    fetch("http://localhost:5000/ridesPackageHome")
       .then((res) => res.json())
       .then((data) => setRidesPackage(data));
   }, []);

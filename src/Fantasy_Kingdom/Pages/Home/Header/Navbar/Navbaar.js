@@ -29,10 +29,17 @@ const Navbaar = () => {
               >
                 <NavLink
                   activeStyle={activeStyle}
-                  className="mx-4 text-decoration-none fw-bold navItem"
+                  className="mx-2 text-decoration-none fw-bold navItem"
                   to="/home"
                 >
                   Home
+                </NavLink>
+                <NavLink
+                  activeStyle={activeStyle}
+                  className="mx-2 text-decoration-none fw-bold navItem"
+                  to="/ridesPackage"
+                >
+                  Packages
                 </NavLink>
                 <NavLink
                   activeStyle={activeStyle}
@@ -43,28 +50,28 @@ const Navbaar = () => {
                 </NavLink>
                 <NavLink
                   activeStyle={activeStyle}
-                  className="mx-4 text-decoration-none fw-bold navItem"
+                  className="mx-2 text-decoration-none fw-bold navItem"
                   to="/contract"
                 >
                   Contract
                 </NavLink>
                 <NavLink
                   activeStyle={activeStyle}
-                  className="mx-4 text-decoration-none fw-bold navItem"
+                  className="mx-2 text-decoration-none fw-bold navItem"
                   to="/myOrders"
                 >
                   My Order
                 </NavLink>
                 <NavLink
                   activeStyle={activeStyle}
-                  className="mx-4 text-decoration-none fw-bold navItem"
+                  className="mx-2 text-decoration-none fw-bold navItem"
                   to="/manageAllOrders"
                 >
                   Manage Order
                 </NavLink>
                 <NavLink
                   activeStyle={activeStyle}
-                  className="mx-4 text-decoration-none fw-bold navItem"
+                  className="mx-2 text-decoration-none fw-bold navItem"
                   to="/addRides"
                 >
                   Manage Order
