@@ -1,7 +1,22 @@
 import React from "react";
+import { useHistory, useLocation } from "react-router-dom";
+import useAuth from "../../Hooks/useAuth";
 import "./Login.css";
 
 const Login = () => {
+  const { googleLogin, setUser } = useAuth();
+  const history = useHistory();
+  const location = useLocation();
+
+  const redirect = location.state?.from || "/home";
+
+  const loginGoogle = () => {
+    googleLogin().then((result) => {
+      setUser(result.user);
+      history.push(redirect);
+    });
+  };
+
   return (
     <div className="container mt-5">
       <div className="shadow-lg d-inline-block p-5 loginContainer">
@@ -12,7 +27,10 @@ const Login = () => {
         </div>
         <div className="d-flex justify-content-center">
           <div className="shadow-lg buttonContainer p-4">
-            <button className="btn btn-outline-secondary rounded-pill border border-3 text-start d-block my-3">
+            <button
+              onClick={loginGoogle}
+              className="btn btn-outline-secondary rounded-pill border border-3 text-start d-block my-3"
+            >
               <span>
                 <img
                   className="mx-3"
