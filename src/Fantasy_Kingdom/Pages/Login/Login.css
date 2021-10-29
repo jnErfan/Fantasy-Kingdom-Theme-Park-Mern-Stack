@@ -1,0 +1,14 @@
+.loginText {
+  font-family: "Teko", sans-serif;
+  display: inline-block;
+  border-bottom: 5px solid #212529;
+  border-radius: 10px;
+}
+.loginContainer {
+  border-radius: 20px;
+  background-color: #c2daf5;
+}
+.buttonContainer {
+  border-radius: 20px;
+  background-color: #ecf1f8;
+}

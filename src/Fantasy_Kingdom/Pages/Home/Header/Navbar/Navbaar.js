@@ -1,9 +1,10 @@
 import React from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import "./Navbaar.css";
 
 const Navbaar = () => {
+  const history = useHistory();
   const activeStyle = {
     color: "#000",
     borderBottom: "4px solid #000",
@@ -11,7 +12,7 @@ const Navbaar = () => {
   return (
     <div>
       <Navbar bg="light" expand="lg">
-        <Container fluid className="">
+        <Container fluid className="px-4">
           <Navbar.Brand href="/home">
             <img
               className="w-50"
@@ -71,6 +72,25 @@ const Navbaar = () => {
                   Add Packages
                 </NavLink>
               </Nav>
+              <div>
+                <button
+                  onClick={() => history.push("/login")}
+                  className="btn btn-outline-secondary fw-bold rounded-pill py-1 px-4 mb-2"
+                >
+                  Login{" "}
+                  <img
+                    src="https://img.icons8.com/ios-glyphs/25/000000/login-rounded-right--v1.png"
+                    alt=""
+                  />
+                </button>
+                <button className="btn btn-outline-danger fw-bold rounded-pill py-1 px-3 mb-2 ms-3">
+                  Log Out <i className="fas fa-sign-out-alt"></i>
+                  {/* <img
+                    src="https://img.icons8.com/metro/22/000000/exit.png"
+                    alt=""
+                  /> */}
+                </button>
+              </div>
             </Navbar.Collapse>
           </div>
         </Container>

@@ -13,6 +13,7 @@ import NotFound from "./Fantasy_Kingdom/Pages/NotFound/NotFound";
 import Navbaar from "./Fantasy_Kingdom/Pages/Home/Header/Navbar/Navbaar";
 import RidesPackage from "./Fantasy_Kingdom/Pages/RidesPackage/RidesPackage";
 import PackageConfirmation from "./Fantasy_Kingdom/Pages/PackageConfirmation/PackageConfirmation";
+import Login from "./Fantasy_Kingdom/Pages/Login/Login";
 // On Scroll Animation
 Aos.init();
 
@@ -56,6 +57,10 @@ function App() {
 
           <Route path="/manageAllOrders">
             <ManageAllOrders />
+          </Route>
+
+          <Route path="/login">
+            <Login />
           </Route>
 
           <Route exact path="*">
