@@ -41,13 +41,7 @@ const Navbaar = () => {
                 >
                   Packages
                 </NavLink>
-                <NavLink
-                  activeStyle={activeStyle}
-                  className="mx-4 text-decoration-none fw-bold navItem"
-                  to="/blogs"
-                >
-                  Blogs
-                </NavLink>
+
                 <NavLink
                   activeStyle={activeStyle}
                   className="mx-2 text-decoration-none fw-bold navItem"
