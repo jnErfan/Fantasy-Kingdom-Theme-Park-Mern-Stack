@@ -34,7 +34,7 @@ const WaterKingdom = () => {
                 "https://fantasykingdom.net/wp-content/uploads/2021/08/H13.png",
               ].map((image) => (
                 <Col key={image}>
-                  <Card className="mb-2 bg-transparent imageFrame2">
+                  <Card className="mb-2 bg-transparent imageFrame2 mb-5">
                     <Card.Img variant="top galleryImage2 m-1" src={image} />
                   </Card>
                 </Col>
