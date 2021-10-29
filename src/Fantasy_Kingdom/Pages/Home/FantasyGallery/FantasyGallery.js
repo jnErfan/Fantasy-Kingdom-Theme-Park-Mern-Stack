@@ -33,13 +33,28 @@ const FantasyGallery = () => {
                 "https://fantasykingdom.net/wp-content/uploads/2021/08/F_OOR5568-1.jpg",
                 "https://c0.wallpaperflare.com/preview/255/133/152/ride-person-sky-amusement.jpg",
               ].map((image) => (
-                <Col>
+                <Col key={image}>
                   <Card className="mb-2 bg-transparent imageFrame">
                     <Card.Img variant="top galleryImage m-1" src={image} />
                   </Card>
                 </Col>
               ))}
             </Row>
+          </div>
+        </div>
+        <div className="videoContainer mt-5">
+          <div>
+            <h1 className="gallery">Video</h1>
+          </div>
+          <div className="">
+            <iframe
+              className="p-4 mb-4 video"
+              width="85%"
+              height="500px"
+              src="https://www.youtube.com/embed/LKTOekTKJpc"
+              title="YouTube video player"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            ></iframe>
           </div>
         </div>
       </div>
