@@ -5,7 +5,7 @@ import "./Banner.css";
 const Banner = () => {
   return (
     <div className="banner">
-      <div className="container">
+      <div className="container bannerContainer">
         <div className="text-start pt-5 ps-5">
           <h1 className="headerTitle text-info fw-bold">
             {" "}
@@ -34,13 +34,14 @@ const Banner = () => {
             <div className="carousel-inner">
               <div className="carousel-item active">
                 <img
-                  src="https://www.lrbtravelteam.com/wp-content/uploads/2020/10/Fantasy-Kingdom.png"
+                  src="https://i.ibb.co/nwhj5z7/Fantasy-Kingdom2-1-1.png"
                   className="d-block w-100 slider-image"
                   alt="..."
                 />
-                <div class="carousel-caption d-none d-md-block">
+                <div className="carousel-caption d-none d-md-block">
                   <h5 className="fw-bold carouselText">
-                    Fantasy Kingdom <br /> Only Theme Park in Bangladesh
+                    <span className="fantasy">Fantasy Kingdom </span> <br />{" "}
+                    Only Theme Park in Bangladesh
                   </h5>
                 </div>
               </div>

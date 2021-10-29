@@ -1,7 +1,5 @@
 .banner {
-  background-image: url(./banner.jpg);
-  position: relative;
-  height: 150vh;
+  background-image: url(https://i.ibb.co/jkXQxvS/Fantasy-Kingdom-1.jpg);
   background-repeat: no-repeat;
   background-size: 100%;
   clip-path: polygon(
@@ -16,6 +14,9 @@
     0% 35%,
     0 0
   );
+}
+.bannerContainer {
+  padding-bottom: 100px;
 }
 .headerTitle {
   font-size: 4em;
@@ -35,8 +36,14 @@
 .carouselText {
   margin-bottom: -30px;
   font-size: 25px;
-  color: #86e1f3;
+  color: #b5f0fc;
   text-shadow: 1px 1px 10px #000;
+}
+.fantasy {
+  color: #ffffff;
+  background-color: #00d5ff36;
+  padding: 2px 15px;
+  border-radius: 30px;
 }
 @media only screen and (max-width: 688px) {
   .header-title1 {

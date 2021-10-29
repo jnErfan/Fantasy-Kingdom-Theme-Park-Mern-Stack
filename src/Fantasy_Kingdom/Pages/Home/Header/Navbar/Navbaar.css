@@ -1,0 +1,24 @@
+.navItem {
+  color: #000;
+  padding: 5px 15px;
+  margin-right: 10px;
+  margin-left: 10px;
+  border-radius: 5px;
+}
+
+.navItem:hover {
+  color: #000;
+  transform: rotate(10deg);
+  transition: transform 1s;
+}
+.navItem:after {
+  content: "";
+  background-color: #000;
+  display: block;
+  height: 3px;
+  width: 0%;
+  transition: 1s;
+}
+.navItem:hover::after {
+  width: 100%;
+}

@@ -1,60 +1,79 @@
 import React from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import "./Navbaar.css";
 
 const Navbaar = () => {
+  const activeStyle = {
+    color: "#000",
+    borderBottom: "4px solid #000",
+  };
   return (
     <div>
       <Navbar bg="light" expand="lg">
-        <Container>
-          <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto">
-              <Nav.Link href="#home">Home</Nav.Link>
-              <Nav.Link href="#link">Link</Nav.Link>
-            </Nav>
-          </Navbar.Collapse>
+        <Container fluid className="">
+          <Navbar.Brand href="/home">
+            <img
+              className="w-50"
+              src="https://fantasykingdom.net/wp-content/uploads/2020/10/fantasy-logo-white.png"
+              alt=""
+            />
+          </Navbar.Brand>
+          <div>
+            <Navbar.Toggle aria-controls="navbarScroll" />
+            <Navbar.Collapse id="navbarScroll">
+              <Nav
+                className="me-auto my-2 my-lg-0"
+                style={{ maxHeight: "100px" }}
+                navbarScroll
+              >
+                <NavLink
+                  activeStyle={activeStyle}
+                  className="mx-4 text-decoration-none fw-bold navItem"
+                  to="/home"
+                >
+                  Home
+                </NavLink>
+                <NavLink
+                  activeStyle={activeStyle}
+                  className="mx-4 text-decoration-none fw-bold navItem"
+                  to="/blogs"
+                >
+                  Blogs
+                </NavLink>
+                <NavLink
+                  activeStyle={activeStyle}
+                  className="mx-4 text-decoration-none fw-bold navItem"
+                  to="/contract"
+                >
+                  Contract
+                </NavLink>
+                <NavLink
+                  activeStyle={activeStyle}
+                  className="mx-4 text-decoration-none fw-bold navItem"
+                  to="/myOrders"
+                >
+                  My Order
+                </NavLink>
+                <NavLink
+                  activeStyle={activeStyle}
+                  className="mx-4 text-decoration-none fw-bold navItem"
+                  to="/manageAllOrders"
+                >
+                  Manage Order
+                </NavLink>
+                <NavLink
+                  activeStyle={activeStyle}
+                  className="mx-4 text-decoration-none fw-bold navItem"
+                  to="/addRides"
+                >
+                  Manage Order
+                </NavLink>
+              </Nav>
+            </Navbar.Collapse>
+          </div>
         </Container>
       </Navbar>
-      <div className="bg-dark py-3">
-        <Link
-          className="mx-4 text-decoration-none text-white fw-bold"
-          to="/home"
-        >
-          Home
-        </Link>
-        <Link
-          className="mx-4 text-decoration-none text-white fw-bold"
-          to="/blogs"
-        >
-          Blogs
-        </Link>
-        <Link
-          className="mx-4 text-decoration-none text-white fw-bold"
-          to="/contract"
-        >
-          Contract
-        </Link>
-        <Link
-          className="mx-4 text-decoration-none text-white fw-bold"
-          to="/myOrders"
-        >
-          My Order
-        </Link>
-        <Link
-          className="mx-4 text-decoration-none text-white fw-bold"
-          to="/manageAllOrders"
-        >
-          Manage Order
-        </Link>
-        <Link
-          className="mx-4 text-decoration-none text-white fw-bold"
-          to="/addRides"
-        >
-          Manage Order
-        </Link>
-      </div>
     </div>
   );
 };
