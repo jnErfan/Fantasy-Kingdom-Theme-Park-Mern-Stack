@@ -7,10 +7,12 @@ import {
   Spinner,
   Tooltip,
 } from "react-bootstrap";
+import { useHistory } from "react-router";
 import "./RidesPackage.css";
 
 const RidesPackage = () => {
   const [ridesPackage, setPackage] = useState([]);
+  const history = useHistory();
   useEffect(() => {
     fetch("http://localhost:5000/rides")
       .then((res) => res.json())
@@ -33,7 +35,12 @@ const RidesPackage = () => {
                   overlay={<Tooltip id="tooltip-disabled">Click</Tooltip>}
                   key={ridePackage?._id}
                 >
-                  <Col className="">
+                  <Col
+                    onClick={() =>
+                      history.push(`/packageConfirmation/${ridePackage?._id}`)
+                    }
+                    className=""
+                  >
                     <Card className="cardContainer">
                       <Card.Img
                         variant="top imageContainer"

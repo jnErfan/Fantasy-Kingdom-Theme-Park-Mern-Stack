@@ -4,7 +4,6 @@ import Aos from "aos";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import HomeContainer from "./Fantasy_Kingdom/Pages/Home/HomeContainer/HomeContainer";
 import Rides from "./Fantasy_Kingdom/Pages/Home/Rides/Rides";
-import RidesDetails from "./Fantasy_Kingdom/Pages/Home/RidesDetails/RidesDetails";
 import Contract from "./Fantasy_Kingdom/Pages/Contract/Contract";
 import Footer from "./Fantasy_Kingdom/Pages/Shared/Footer";
 import MyOrders from "./Fantasy_Kingdom/Pages/MyOrders/MyOrders";
@@ -13,6 +12,7 @@ import AddRides from "./Fantasy_Kingdom/Pages/AddRides/AddRides";
 import NotFound from "./Fantasy_Kingdom/Pages/NotFound/NotFound";
 import Navbaar from "./Fantasy_Kingdom/Pages/Home/Header/Navbar/Navbaar";
 import RidesPackage from "./Fantasy_Kingdom/Pages/RidesPackage/RidesPackage";
+import PackageConfirmation from "./Fantasy_Kingdom/Pages/PackageConfirmation/PackageConfirmation";
 // On Scroll Animation
 Aos.init();
 
@@ -38,8 +38,8 @@ function App() {
             <RidesPackage />
           </Route>
 
-          <Route path="/ridesDetails">
-            <RidesDetails />
+          <Route path="/packageConfirmation/:packageId">
+            <PackageConfirmation />
           </Route>
 
           <Route path="/contract">

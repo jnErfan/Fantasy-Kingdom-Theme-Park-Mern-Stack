@@ -1,0 +1,13 @@
+.detailImg {
+  border-radius: 20px;
+  width: 80%;
+  margin-bottom: 20px;
+  text-align: start;
+}
+.cardsContainer {
+  border-radius: 20px;
+}
+.orderButton {
+  background-color: orangered;
+  color: #fff;
+}
