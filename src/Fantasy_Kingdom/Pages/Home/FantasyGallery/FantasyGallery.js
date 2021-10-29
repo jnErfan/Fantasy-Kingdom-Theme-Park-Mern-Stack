@@ -13,7 +13,7 @@ const FantasyGallery = () => {
             alt=""
           />
         </div>
-        <div className="fantasyGalleryContainer p-3">
+        <div className="fantasyGalleryContainer p-3 pb-5">
           <div>
             <h1 className="gallery">Gallery</h1>
           </div>
@@ -42,7 +42,7 @@ const FantasyGallery = () => {
             </Row>
           </div>
         </div>
-        <div className="videoContainer mt-5">
+        <div className="videoContainer">
           <div>
             <h1 className="gallery">Video</h1>
           </div>

@@ -9,7 +9,7 @@ const Rides = () => {
       .then((res) => res.json())
       .then((data) => setRidesPackage(data));
   }, []);
-  console.log(ridesPackage);
+
   return (
     <div className="container">
       <div>

@@ -1,45 +1,45 @@
-.galleryContainer {
+.galleryContainer2 {
   margin-top: 100px;
   margin-bottom: 100px;
 }
-.fantasyGalleryContainer {
-  background-color: #ff000034;
+.fantasyGalleryContainer2 {
+  background-color: #00f7ff46;
   border-radius: 25px;
 }
-.gallery {
+.gallery2 {
   font-family: "Concert One", cursive;
   font-size: 60px;
   padding: 10px;
 }
-.galleryImage {
+.galleryImage2 {
   position: relative;
   border-radius: 15px;
-  border: 2px solid #ff0000a8;
+  border: 2px solid #00f7ff;
 }
 
-.galleryImage:hover {
+.galleryImage2:hover {
   transform: scale(2);
   transition: 3s;
   z-index: 2;
   cursor: pointer;
 }
-.imageFrame {
+.imageFrame2 {
   border: 0px;
 }
-.imageFrame:hover {
+.imageFrame2:hover {
   border: 0px;
-  border: 3px solid #ff0000a8;
+  border: 3px solid #00f7ff;
   z-index: 2;
   transform: scale(2);
   transition: 3s;
   border-radius: 15px;
   overflow: hidden;
 }
-.videoContainer {
-  background-color: #09ff005e;
+.videoContainer2 {
+  background-color: #4d494946;
   border-radius: 25px;
   margin-top: 100px;
 }
-.video {
+.video2 {
   border-radius: 50px;
 }
