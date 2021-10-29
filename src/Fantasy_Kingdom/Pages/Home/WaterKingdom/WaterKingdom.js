@@ -44,7 +44,7 @@ const WaterKingdom = () => {
         </div>
         <div className="videoContainer2">
           <div>
-            <h1 className="gallery">Video</h1>
+            <h1 className="gallery2">Video</h1>
           </div>
           <div className="">
             <iframe

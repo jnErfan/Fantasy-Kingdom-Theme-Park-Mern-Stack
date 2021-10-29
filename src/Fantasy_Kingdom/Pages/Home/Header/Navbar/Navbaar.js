@@ -74,7 +74,7 @@ const Navbaar = () => {
                   className="mx-2 text-decoration-none fw-bold navItem"
                   to="/addRides"
                 >
-                  Manage Order
+                  Add Packages
                 </NavLink>
               </Nav>
             </Navbar.Collapse>

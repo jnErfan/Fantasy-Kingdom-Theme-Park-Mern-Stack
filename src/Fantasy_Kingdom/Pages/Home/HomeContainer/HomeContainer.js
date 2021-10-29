@@ -1,4 +1,5 @@
 import React from "react";
+import AtlantisResort from "../AtlantisResort/AtlantisResort";
 import FantasyGallery from "../FantasyGallery/FantasyGallery";
 import Banner from "../Header/Banner/Banner";
 import Rides from "../Rides/Rides";
@@ -11,6 +12,7 @@ const HomeContainer = () => {
       <Rides />
       <FantasyGallery />
       <WaterKingdom />
+      <AtlantisResort />
     </div>
   );
 };
