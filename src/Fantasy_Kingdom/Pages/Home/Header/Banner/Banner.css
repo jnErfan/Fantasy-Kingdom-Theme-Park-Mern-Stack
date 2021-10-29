@@ -1,4 +1,4 @@
-.banner2 {
+.banner {
   background-image: url(https://i.ibb.co/jkXQxvS/Fantasy-Kingdom-1.jpg);
   background-repeat: no-repeat;
   background-size: 100%;
@@ -15,7 +15,8 @@
     0 0
   );
 }
-.banner {
+.banner2 {
+  padding-bottom: 50px;
   background-color: #0dcaf0;
   clip-path: polygon(
     50% 0%,
