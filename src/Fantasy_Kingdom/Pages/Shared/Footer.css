@@ -33,9 +33,31 @@
 .firstColum {
   border-right: 3px solid #fff;
 }
+.thirdColum {
+  border-left: 3px solid #fff;
+}
 .footer_nav {
   text-decoration: none;
 }
 .footer_nav:hover {
   text-decoration: underline;
+}
+.inputField {
+  background-color: #252525;
+  border-radius: 5px;
+  padding-right: 135px;
+  padding-left: 15px;
+  padding-top: 15px;
+  padding-bottom: 20px;
+  /* padding: 17px 80px; */
+  border: 1px solid rgb(131, 131, 131);
+}
+input[type="submit"] {
+  margin-left: -135px;
+  margin-top: 8px;
+  padding: 0px 20px;
+  height: 45px;
+  width: 127px;
+  background-color: #d93131;
+  color: #fff;
 }

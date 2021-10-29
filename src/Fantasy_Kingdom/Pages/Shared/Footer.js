@@ -48,8 +48,29 @@ const Footer = () => {
                 </Link>
               </div>
             </div>
-            <div className="col col-12 col-md-6 col-lg-4">
-              <h1>PROUD MEMBER OF</h1>
+            <div className="col col-12 col-md-6 col-lg-4 thirdColum">
+              <div className="text-start ps-2 ">
+                <div>
+                  <h1 className="fontTeko">PAYMENT WITH</h1>
+                  <img
+                    className="w-100"
+                    src="https://fantasykingdom.net/wp-content/uploads/2020/10/cardinfo.png"
+                    alt=""
+                  />
+                </div>
+                <div className="mt-5 d-flex">
+                  <input
+                    className="inputField"
+                    placeholder="Your Email"
+                    type="email"
+                  />
+                  <input
+                    type="submit"
+                    className="buttonField btn"
+                    value="Subscribe"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
