@@ -1,0 +1,16 @@
+.orderText {
+  font-family: "Concert One", cursive;
+  display: inline-block;
+  border-bottom: 5px solid #212529;
+  border-radius: 15px;
+}
+.status {
+  background-color: rgb(247, 92, 36);
+}
+.cardMain {
+  border-radius: 20px;
+  background-color: #d5e9fd;
+}
+.cardImage {
+  border-radius: 20px;
+}

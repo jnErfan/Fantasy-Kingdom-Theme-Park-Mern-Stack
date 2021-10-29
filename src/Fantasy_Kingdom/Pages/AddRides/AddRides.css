@@ -2,3 +2,9 @@
   background-color: #b6d2fd;
   border-radius: 20px;
 }
+.addPackageText {
+  font-family: "Concert One", cursive;
+  display: inline-block;
+  border-bottom: 5px solid #212529;
+  border-radius: 15px;
+}

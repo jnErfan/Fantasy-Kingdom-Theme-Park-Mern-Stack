@@ -1,5 +1,5 @@
 import React from "react";
-import { FormControl } from "react-bootstrap";
+import { Form, FormControl } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import "./AddRides.css";
 
@@ -17,12 +17,12 @@ const AddRides = () => {
         </div>
         <div className="d-flex justify-content-center">
           <div className="shadow-lg p-5 mt-4 fromContainer w-75">
-            <div className="packageText mt-4 mb-5">
+            <div className="addPackageText mt-4 mb-5">
               <h1>Add Rides Package</h1>
             </div>
             <div className="text-start">
               <form onSubmit={handleSubmit(onSubmit)}>
-                <level htmlFor="rideName">Rides Package Name</level>
+                <Form.Label>Rides Package Name</Form.Label>
                 <FormControl
                   className="w-100 mb-4"
                   id="rideName"
@@ -31,8 +31,7 @@ const AddRides = () => {
                   required
                   {...register("rideName")}
                 />
-
-                <level htmlFor="description">Description</level>
+                <Form.Label>Description</Form.Label>
                 <FormControl
                   as="textarea"
                   className="w-100 mb-4"
@@ -41,8 +40,7 @@ const AddRides = () => {
                   required
                   {...register("description")}
                 />
-
-                <level htmlFor="price">Price</level>
+                <Form.Label>Price</Form.Label>
                 <FormControl
                   className="w-100 mb-4"
                   type="number"
@@ -51,7 +49,8 @@ const AddRides = () => {
                   required
                   {...register("price")}
                 />
-                <level htmlFor="imageUrl">Package Image Url</level>
+
+                <Form.Label>Package Image Url</Form.Label>
                 <FormControl
                   className="w-100 mb-4"
                   type="url"
@@ -61,7 +60,6 @@ const AddRides = () => {
                   {...register("image")}
                 />
 
-                <level htmlFor="image">Package Image</level>
                 <FormControl
                   className="w-100 mb-4"
                   type="file"

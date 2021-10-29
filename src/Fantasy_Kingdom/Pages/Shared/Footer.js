@@ -96,7 +96,7 @@ const Footer = () => {
 
             <div className="py-2">
               <small>
-                <i class="far fa-copyright"></i> Design With Love By{" "}
+                <i className="far fa-copyright"></i> Design With Love By{" "}
                 <span className="text-danger fw-bold"> J.N.Erfan</span>
               </small>
             </div>
