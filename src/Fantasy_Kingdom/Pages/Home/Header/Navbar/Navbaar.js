@@ -1,8 +1,8 @@
 import React from "react";
-import { Container, Nav } from "react-bootstrap";
+import { Container, Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-const Navbar = () => {
+const Navbaar = () => {
   return (
     <div>
       <Navbar bg="light" expand="lg">
@@ -59,4 +59,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Navbaar;

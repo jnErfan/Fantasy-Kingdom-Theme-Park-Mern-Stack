@@ -34,6 +34,18 @@ const Banner = () => {
             <div className="carousel-inner">
               <div className="carousel-item active">
                 <img
+                  src="https://www.lrbtravelteam.com/wp-content/uploads/2020/10/Fantasy-Kingdom.png"
+                  className="d-block w-100 slider-image"
+                  alt="..."
+                />
+                <div class="carousel-caption d-none d-md-block">
+                  <h5 className="fw-bold carouselText">
+                    Fantasy Kingdom <br /> Only Theme Park in Bangladesh
+                  </h5>
+                </div>
+              </div>
+              <div className="carousel-item">
+                <img
                   src="https://fantasykingdom.net/wp-content/uploads/2021/08/F_OOR5568-1.jpg"
                   className="d-block w-100 slider-image"
                   alt="..."
