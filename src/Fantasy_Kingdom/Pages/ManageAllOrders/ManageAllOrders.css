@@ -1,0 +1,9 @@
+.manageOrderText {
+  font-family: "Concert One", cursive;
+  display: inline-block;
+  border-bottom: 5px solid #212529;
+  border-radius: 15px;
+}
+.packageStatus {
+  background-color: #535353;
+}
