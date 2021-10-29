@@ -1,0 +1,14 @@
+.MainContainer {
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+.exploreContainer {
+  background-color: rgba(152, 184, 9, 0.274);
+  border-radius: 20px;
+}
+.title {
+  font-family: "Concert One", cursive;
+}
+.carouselImage {
+  border-radius: 20px;
+}
