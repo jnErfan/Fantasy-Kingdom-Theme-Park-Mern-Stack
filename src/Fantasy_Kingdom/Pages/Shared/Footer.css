@@ -1,8 +1,15 @@
 .footerContainer {
   background-color: #252525;
   color: #fff;
+  padding-top: 150px;
+  clip-path: polygon(0 24%, 100% 0, 100% 100%, 0% 100%);
 }
-
+.footerContainer2 {
+  background-color: #0465e3;
+  color: #fff;
+  margin-top: 100px;
+  clip-path: polygon(53% 11%, 100% 0, 100% 100%, 0 100%, 0 0);
+}
 /* Footar Ancors  */
 .footar-icon a {
   text-decoration: none;
@@ -49,7 +56,6 @@
   padding-left: 15px;
   padding-top: 15px;
   padding-bottom: 20px;
-  /* padding: 17px 80px; */
   border: 1px solid rgb(131, 131, 131);
 }
 input[type="submit"] {

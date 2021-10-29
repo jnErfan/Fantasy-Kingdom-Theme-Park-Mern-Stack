@@ -1,7 +1,22 @@
-.banner {
+.banner2 {
   background-image: url(https://i.ibb.co/jkXQxvS/Fantasy-Kingdom-1.jpg);
   background-repeat: no-repeat;
   background-size: 100%;
+  clip-path: polygon(
+    50% 0%,
+    100% 0,
+    100% 35%,
+    100% 81%,
+    80% 90%,
+    50% 94%,
+    20% 90%,
+    0 80%,
+    0% 35%,
+    0 0
+  );
+}
+.banner {
+  background-color: #0dcaf0;
   clip-path: polygon(
     50% 0%,
     100% 0,
