@@ -12,6 +12,7 @@ const Navbaar = () => {
     color: "#000",
     borderBottom: "4px solid #000",
   };
+  const defaultUserImage = "https://i.ibb.co/hM9DLXG/avt2.png";
   return (
     <div>
       <Navbar bg="light" expand="lg">
@@ -45,6 +46,13 @@ const Navbaar = () => {
                 >
                   Packages
                 </NavLink>
+                <NavLink
+                  activeStyle={activeStyle}
+                  className="mx-2 text-decoration-none fw-bold navItem"
+                  to="/"
+                >
+                  Parks
+                </NavLink>
 
                 <NavLink
                   activeStyle={activeStyle}
@@ -53,55 +61,69 @@ const Navbaar = () => {
                 >
                   Contract
                 </NavLink>
-                <NavLink
-                  activeStyle={activeStyle}
-                  className="mx-2 text-decoration-none fw-bold navItem"
-                  to="/myOrders"
-                >
-                  My Order
-                </NavLink>
-                <NavLink
-                  activeStyle={activeStyle}
-                  className="mx-2 text-decoration-none fw-bold navItem"
-                  to="/manageAllOrders"
-                >
-                  Manage Order
-                </NavLink>
-                <NavLink
-                  activeStyle={activeStyle}
-                  className="mx-2 text-decoration-none fw-bold navItem"
-                  to="/addRides"
-                >
-                  Add Packages
-                </NavLink>
-              </Nav>
-              <div>
-                {user ? (
-                  <>
-                    <button
-                      onClick={() => history.push("/login")}
-                      className="btn btn-outline-secondary fw-bold rounded-pill py-1 px-4 mb-2"
-                    >
-                      Login{" "}
-                      <img
-                        src="https://img.icons8.com/ios-glyphs/25/000000/login-rounded-right--v1.png"
-                        alt=""
-                      />
-                    </button>
-                  </>
-                ) : (
+                {user && (
                   <>
                     {" "}
-                    <button
-                      onClick={logOut}
-                      className="btn btn-outline-danger fw-bold rounded-pill py-1 px-3 mb-2 ms-3"
+                    <NavLink
+                      activeStyle={activeStyle}
+                      className="mx-2 text-decoration-none fw-bold navItem"
+                      to="/myOrders"
                     >
-                      Log Out <i className="fas fa-sign-out-alt"></i>
-                    </button>
+                      My Order
+                    </NavLink>
+                    <NavLink
+                      activeStyle={activeStyle}
+                      className="mx-2 text-decoration-none fw-bold navItem"
+                      to="/manageAllOrders"
+                    >
+                      Manage Order
+                    </NavLink>
+                    <NavLink
+                      activeStyle={activeStyle}
+                      className="mx-2 text-decoration-none fw-bold navItem"
+                      to="/addRides"
+                    >
+                      Add Packages
+                    </NavLink>
                   </>
                 )}
-              </div>
+              </Nav>
             </Navbar.Collapse>
+          </div>
+          <div>
+            {!user ? (
+              <>
+                <button
+                  onClick={() => history.push("/login")}
+                  className="btn btn-outline-secondary fw-bold rounded-pill py-1 px-4 mb-2"
+                >
+                  Login{" "}
+                  <img
+                    src="https://img.icons8.com/ios-glyphs/25/000000/login-rounded-right--v1.png"
+                    alt=""
+                  />
+                </button>
+              </>
+            ) : (
+              <>
+                <span>
+                  <img
+                    width="45px"
+                    className="border rounded-circle"
+                    src={user?.photoURL || defaultUserImage}
+                    alt=""
+                  />
+                </span>
+
+                <span className="ms-3">{user.displayName}</span>
+                <button
+                  onClick={logOut}
+                  className="btn btn-outline-danger fw-bold rounded-pill py-1 px-3 mb-2 ms-3"
+                >
+                  Log Out <i className="fas fa-sign-out-alt"></i>
+                </button>
+              </>
+            )}
           </div>
         </Container>
       </Navbar>
