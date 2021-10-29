@@ -29,8 +29,9 @@ const Rides = () => {
             {ridesPackage.map((ridePackage) => (
               <OverlayTrigger
                 overlay={<Tooltip id="tooltip-disabled">Click</Tooltip>}
+                key={ridePackage?._id}
               >
-                <Col className="" key={ridePackage?._id}>
+                <Col className="">
                   <Card className="cardContainer">
                     <Card.Img
                       variant="top imageContainer"
