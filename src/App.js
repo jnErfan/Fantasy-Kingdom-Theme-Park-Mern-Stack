@@ -14,62 +14,65 @@ import Navbaar from "./Fantasy_Kingdom/Pages/Home/Header/Navbar/Navbaar";
 import RidesPackage from "./Fantasy_Kingdom/Pages/RidesPackage/RidesPackage";
 import PackageConfirmation from "./Fantasy_Kingdom/Pages/PackageConfirmation/PackageConfirmation";
 import Login from "./Fantasy_Kingdom/Pages/Login/Login";
+import AuthContext from "./Fantasy_Kingdom/Context/AuthContext";
 // On Scroll Animation
 Aos.init();
 
 function App() {
   return (
-    <div className="App">
-      <Router>
-        <Navbaar />
-        <Switch>
-          <Route exact path="/">
-            <HomeContainer />
-          </Route>
+    <AuthContext>
+      <div className="App">
+        <Router>
+          <Navbaar />
+          <Switch>
+            <Route exact path="/">
+              <HomeContainer />
+            </Route>
 
-          <Route path="/home">
-            <HomeContainer />
-          </Route>
+            <Route path="/home">
+              <HomeContainer />
+            </Route>
 
-          <Route path="/rides">
-            <Rides />
-          </Route>
+            <Route path="/rides">
+              <Rides />
+            </Route>
 
-          <Route path="/ridesPackage">
-            <RidesPackage />
-          </Route>
+            <Route path="/ridesPackage">
+              <RidesPackage />
+            </Route>
 
-          <Route path="/packageConfirmation/:packageId">
-            <PackageConfirmation />
-          </Route>
+            <Route path="/packageConfirmation/:packageId">
+              <PackageConfirmation />
+            </Route>
 
-          <Route path="/contract">
-            <Contract />
-          </Route>
+            <Route path="/contract">
+              <Contract />
+            </Route>
 
-          <Route path="/myOrders">
-            <MyOrders />
-          </Route>
+            <Route path="/myOrders">
+              <MyOrders />
+            </Route>
 
-          <Route path="/addRides">
-            <AddRides />
-          </Route>
+            <Route path="/addRides">
+              <AddRides />
+            </Route>
 
-          <Route path="/manageAllOrders">
-            <ManageAllOrders />
-          </Route>
+            <Route path="/manageAllOrders">
+              <ManageAllOrders />
+            </Route>
 
-          <Route path="/login">
-            <Login />
-          </Route>
+            <Route path="/login">
+              <Login />
+            </Route>
 
-          <Route exact path="*">
-            <NotFound />
-          </Route>
-        </Switch>
-        <Footer />
-      </Router>
-    </div>
+            <Route exact path="*">
+              <NotFound />
+            </Route>
+          </Switch>
+          <Footer />
+        </Router>
+      </div>
+    </AuthContext>
   );
 }
 
