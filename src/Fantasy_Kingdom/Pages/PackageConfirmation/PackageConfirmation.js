@@ -21,7 +21,7 @@ const PackageConfirmation = () => {
   const packageDetail = packageDetails?.[0];
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
-    data.orderInfo = packageId;
+    data.orderInfo = packageDetail;
     data.status = "Pending";
     reset();
     axios.post("http://localhost:5000/orderInfo", data).then((result) => {
