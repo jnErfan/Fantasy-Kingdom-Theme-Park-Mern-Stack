@@ -14,7 +14,7 @@ const ManageAllOrders = () => {
         <div className="manageOrderText mt-4 mb-5">
           <h1>Manage All Orders</h1>
         </div>
-        <div className="container" style={{ marginTop: "120px" }}>
+        <div className="container">
           <div
             style={{ borderRadius: "15px" }}
             className="d-flex justify-content-center mt-5 shadow-lg py-5"

@@ -1,10 +1,21 @@
-import React from "react";
-import { Container, Nav, Navbar } from "react-bootstrap";
+import React, { useRef, useState } from "react";
+import {
+  Container,
+  Nav,
+  Navbar,
+  Overlay,
+  Popover,
+  Modal,
+} from "react-bootstrap";
 import { NavLink, useHistory } from "react-router-dom";
 import useAuth from "../../../../Hooks/useAuth";
 import "./Navbaar.css";
 
 const Navbaar = () => {
+  const [show, setShow] = useState(false);
+  const [target, setTarget] = useState(null);
+  const ref = useRef(null);
+  const [smShow, setSmShow] = useState(false);
   const history = useHistory();
   const { logOut, user } = useAuth();
   console.log(user);
@@ -13,6 +24,12 @@ const Navbaar = () => {
     borderBottom: "4px solid #000",
   };
   const defaultUserImage = "https://i.ibb.co/hM9DLXG/avt2.png";
+
+  const handleClick = (event) => {
+    setShow(!show);
+    setTarget(event.target);
+  };
+
   return (
     <div>
       <Navbar bg="light" expand="lg">
@@ -41,14 +58,13 @@ const Navbaar = () => {
                 </NavLink>
                 <NavLink
                   activeStyle={activeStyle}
-                  className="mx-2 text-decoration-none fw-bold navItem"
+                  className="me-1 text-decoration-none fw-bold navItem"
                   to="/ridesPackage"
                 >
                   Packages
                 </NavLink>
                 <NavLink
-                  activeStyle={activeStyle}
-                  className="mx-2 text-decoration-none fw-bold navItem"
+                  className="me-1 text-decoration-none fw-bold navItem"
                   to="/"
                 >
                   Parks
@@ -56,7 +72,7 @@ const Navbaar = () => {
 
                 <NavLink
                   activeStyle={activeStyle}
-                  className="mx-2 text-decoration-none fw-bold navItem"
+                  className="me-1 text-decoration-none fw-bold navItem"
                   to="/contract"
                 >
                   Contract
@@ -66,25 +82,54 @@ const Navbaar = () => {
                     {" "}
                     <NavLink
                       activeStyle={activeStyle}
-                      className="mx-2 text-decoration-none fw-bold navItem"
+                      className="me-1 text-decoration-none fw-bold navItem"
                       to="/myOrders"
                     >
                       My Order
                     </NavLink>
-                    <NavLink
-                      activeStyle={activeStyle}
-                      className="mx-2 text-decoration-none fw-bold navItem"
-                      to="/manageAllOrders"
-                    >
-                      Manage Order
-                    </NavLink>
-                    <NavLink
-                      activeStyle={activeStyle}
-                      className="mx-2 text-decoration-none fw-bold navItem"
-                      to="/addRides"
-                    >
-                      Add Packages
-                    </NavLink>
+                    <>
+                      <span
+                        onClick={() => setSmShow(true)}
+                        className="ms-5 adminLogo"
+                      >
+                        <span className="fw-bold">ADMIN</span>
+                        <img
+                          src="https://img.icons8.com/fluency/48/000000/admin-settings-male.png"
+                          alt=""
+                        />
+                      </span>
+                      <Modal
+                        size="sm"
+                        show={smShow}
+                        onHide={() => setSmShow(false)}
+                        aria-labelledby="example-modal-sizes-title-sm"
+                      >
+                        <Modal.Header closeButton>
+                          <Modal.Title id="example-modal-sizes-title-sm ">
+                            <span className="fw-bold">
+                              <span style={{ color: "#FF6600" }}>ADMIN</span>{" "}
+                              PANEL
+                            </span>
+                          </Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body>
+                          <NavLink
+                            className="me-1 text-decoration-none fw-bold text-dark d-block mt-3 adminItem"
+                            to="/manageAllOrders"
+                          >
+                            <i className="fas fa-tasks me-3 fs-4"></i> Manage
+                            Order
+                          </NavLink>
+                          <NavLink
+                            className="me-1 text-decoration-none fw-bold text-dark d-block mt-3 pb-4 adminItem"
+                            to="/addRides"
+                          >
+                            <i className="fas fa-folder-plus fs-4 me-3"></i> Add
+                            Packages
+                          </NavLink>
+                        </Modal.Body>
+                      </Modal>
+                    </>
                   </>
                 )}
               </Nav>
@@ -106,19 +151,44 @@ const Navbaar = () => {
               </>
             ) : (
               <>
-                <span>
+                <span ref={ref}>
                   <img
+                    onClick={handleClick}
                     width="45px"
-                    className="border rounded-circle"
+                    className="border rounded-circle ms-3 profileImage"
                     src={user?.photoURL || defaultUserImage}
                     alt=""
                   />
+                  <Overlay
+                    show={show}
+                    target={target}
+                    placement="bottom"
+                    container={ref}
+                    containerPadding={20}
+                  >
+                    <Popover id="popover-contained">
+                      <Popover.Header className="px-5 border-0 bg-secondary text-center">
+                        <span className="ms-2 fs-5 fw-bold text-info">
+                          {user.displayName}
+                        </span>
+                      </Popover.Header>
+                      <Popover.Body>
+                        <div className="text-center">
+                          <img
+                            width="100px"
+                            className="border rounded-circle ms-3"
+                            src={user?.photoURL || defaultUserImage}
+                            alt=""
+                          />
+                        </div>
+                      </Popover.Body>
+                    </Popover>
+                  </Overlay>
                 </span>
 
-                <span className="ms-3">{user.displayName}</span>
                 <button
                   onClick={logOut}
-                  className="btn btn-outline-danger fw-bold rounded-pill py-1 px-3 mb-2 ms-3"
+                  className="btn btn-outline-danger fw-bold rounded-pill  px-3 py-2 ms-3"
                 >
                   Log Out <i className="fas fa-sign-out-alt"></i>
                 </button>
@@ -132,3 +202,18 @@ const Navbaar = () => {
 };
 
 export default Navbaar;
+/* function Example() {
+  
+
+ 
+
+  return (
+    <div ref={ref}>
+      <Button onClick={handleClick}>Holy guacamole!</Button>
+
+     
+    </div>
+  );
+}
+
+render(<Example />); */
