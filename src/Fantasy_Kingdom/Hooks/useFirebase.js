@@ -1,6 +1,8 @@
 import FirebaseInitialize from "../Firebase/FirebaseInitialize";
 import {
   GoogleAuthProvider,
+  FacebookAuthProvider,
+  GithubAuthProvider,
   getAuth,
   signInWithPopup,
   onAuthStateChanged,
@@ -11,6 +13,8 @@ import { useEffect, useState } from "react";
 FirebaseInitialize();
 
 const googleProvider = new GoogleAuthProvider();
+const facebookProvider = new FacebookAuthProvider();
+const githubProvider = new GithubAuthProvider();
 const useFirebase = () => {
   const [user, setUser] = useState("");
   const [error, setError] = useState("");
@@ -21,6 +25,28 @@ const useFirebase = () => {
     setError("");
     setIsLoading(true);
     return signInWithPopup(auth, googleProvider)
+      .catch((error) => {
+        setError(error.message);
+      })
+      .finally(() => setIsLoading(false));
+  };
+
+  // GitHub Sign In
+  const githubSignIn = () => {
+    setError("");
+    setIsLoading(true);
+    return signInWithPopup(auth, githubProvider)
+      .catch((error) => {
+        setError(error.message);
+      })
+      .finally(() => setIsLoading(false));
+  };
+
+  // Facebook Sign In
+  const facebookSignIn = () => {
+    setError("");
+    setIsLoading(true);
+    return signInWithPopup(auth, facebookProvider)
       .catch((error) => {
         setError(error.message);
       })
@@ -52,6 +78,8 @@ const useFirebase = () => {
     error,
     isLoading,
     googleLogin,
+    githubSignIn,
+    facebookSignIn,
     setUser,
     logOut,
   };

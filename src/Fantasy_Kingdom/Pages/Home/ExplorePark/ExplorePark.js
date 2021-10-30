@@ -1,4 +1,5 @@
 import React from "react";
+import { HashLink } from "react-router-hash-link";
 import "./ExplorePark.css";
 
 const ExplorePark = () => {
@@ -94,6 +95,11 @@ const ExplorePark = () => {
             </button>
           </div>
         </div>
+      </div>
+      <div>
+        <HashLink className="verticalScrolBar shadow" to="#">
+          <i className="fas fa-angle-up"></i>
+        </HashLink>
       </div>
     </div>
   );

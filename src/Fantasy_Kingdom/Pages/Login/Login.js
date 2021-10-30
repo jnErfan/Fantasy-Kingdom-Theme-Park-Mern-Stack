@@ -4,16 +4,33 @@ import useAuth from "../../Hooks/useAuth";
 import "./Login.css";
 
 const Login = () => {
-  const { googleLogin, setUser } = useAuth();
+  const { googleLogin, githubSignIn, facebookSignIn, setUser, error } =
+    useAuth();
   const history = useHistory();
   const location = useLocation();
-
   const redirect = location.state?.from || "/home";
 
+  // Sending to where you were before Google Login
   const loginGoogle = () => {
     googleLogin().then((result) => {
-      setUser(result.user);
+      setUser(result?.user);
       history.push(redirect);
+    });
+  };
+
+  // Sending to where you were before Github Login
+  const loginWithGithub = () => {
+    githubSignIn().then((result) => {
+      history.push(redirect);
+      setUser(result?.user);
+    });
+  };
+
+  // Sending to where you were before facebook Login
+  const loginWithFacebook = () => {
+    facebookSignIn().then((result) => {
+      history.push(redirect);
+      setUser(result?.user);
     });
   };
 
@@ -40,7 +57,10 @@ const Login = () => {
               </span>
               <span className="fw-bold me-4">Continue With Google</span>
             </button>
-            <button className="btn btn-outline-secondary rounded-pill border border-3 text-start d-block my-3">
+            <button
+              onClick={loginWithGithub}
+              className="btn btn-outline-secondary rounded-pill border border-3 text-start d-block my-3"
+            >
               <span>
                 <img
                   className="mx-3"
@@ -50,7 +70,10 @@ const Login = () => {
               </span>
               <span className="fw-bold me-4">Continue With GitHub</span>
             </button>
-            <button className="btn btn-outline-secondary rounded-pill border border-3 text-start d-block my-3">
+            <button
+              onClick={loginWithFacebook}
+              className="btn btn-outline-secondary rounded-pill border border-3 text-start d-block my-3"
+            >
               <span>
                 <img
                   className="mx-3"
@@ -60,9 +83,10 @@ const Login = () => {
               </span>
               <span className="fw-bold me-1">Continue With Facebook</span>
             </button>
+            <p>
+              <small className="text-danger fw-bold">{error}</small>
+            </p>
           </div>
-
-          <div className="text-center"></div>
         </div>
       </div>
     </div>
