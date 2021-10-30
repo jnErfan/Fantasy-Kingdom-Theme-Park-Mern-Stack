@@ -19,7 +19,18 @@
   width: 0%;
   transition: 1s;
 }
+.navItem2:after {
+  content: "";
+  background-color: #575655;
+  display: block;
+  height: 3px;
+  width: 0%;
+  transition: 1s;
+}
 .navItem:hover::after {
+  width: 100%;
+}
+.navItem2:hover::after {
   width: 100%;
 }
 .profileImage {

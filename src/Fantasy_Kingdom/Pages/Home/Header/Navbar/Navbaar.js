@@ -6,8 +6,11 @@ import {
   Overlay,
   Popover,
   Modal,
+  SplitButton,
+  Dropdown,
 } from "react-bootstrap";
 import { NavLink, useHistory } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 import useAuth from "../../../../Hooks/useAuth";
 import "./Navbaar.css";
 
@@ -63,13 +66,37 @@ const Navbaar = () => {
                 >
                   Packages
                 </NavLink>
-                <NavLink
-                  className="me-1 text-decoration-none fw-bold navItem"
-                  to="/"
+                <SplitButton
+                  href="#ExplorePark"
+                  variant="fight fw-bold"
+                  title="Parks"
                 >
-                  Parks
-                </NavLink>
-
+                  <Dropdown.Item className="navItem2">
+                    <HashLink
+                      className="mx-2 text-decoration-none fw-bold text-dark"
+                      to="/home#FantasyGallery"
+                    >
+                      Fantasy Kingdom
+                    </HashLink>
+                  </Dropdown.Item>
+                  <Dropdown.Item className="navItem2">
+                    <HashLink
+                      className="mx-2 text-decoration-none fw-bold text-dark"
+                      to="/home#WaterKingdom"
+                    >
+                      Water Kingdom
+                    </HashLink>
+                  </Dropdown.Item>
+                  <Dropdown.Item className="navItem2">
+                    {" "}
+                    <HashLink
+                      className="mx-2 text-decoration-none fw-bold text-dark"
+                      to="/home#AtlantisResort"
+                    >
+                      Atlantis Resort
+                    </HashLink>
+                  </Dropdown.Item>
+                </SplitButton>
                 <NavLink
                   activeStyle={activeStyle}
                   className="me-1 text-decoration-none fw-bold navItem"

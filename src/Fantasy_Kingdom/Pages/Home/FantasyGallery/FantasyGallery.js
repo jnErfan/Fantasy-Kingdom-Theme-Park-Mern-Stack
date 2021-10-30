@@ -4,7 +4,7 @@ import "./FantasyGallery.css";
 
 const FantasyGallery = () => {
   return (
-    <div className="container galleryContainer">
+    <div className="container galleryContainer" id="FantasyGallery">
       <div>
         <div className="mb-5">
           <img

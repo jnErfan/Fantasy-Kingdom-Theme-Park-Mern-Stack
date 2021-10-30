@@ -3,7 +3,7 @@ import "./ExplorePark.css";
 
 const ExplorePark = () => {
   return (
-    <div className="container MainContainer">
+    <div className="container MainContainer" id="ExplorePark">
       <div className="exploreContainer shadow-lg">
         <div className="title py-5">
           <h1>EXPLORE OUR PARKS & RESORT</h1>

@@ -4,7 +4,7 @@ import "./AtlantisResort.css";
 
 const AtlantisResort = () => {
   return (
-    <div className="container galleryContainer3">
+    <div className="container galleryContainer3" id="AtlantisResort">
       <div>
         <div className="mb-5">
           <img

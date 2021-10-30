@@ -4,7 +4,7 @@ import "./WaterKingdom.css";
 
 const WaterKingdom = () => {
   return (
-    <div className="container galleryContainer2">
+    <div className="container galleryContainer2" id="WaterKingdom">
       <div>
         <div className="mb-5">
           <img
