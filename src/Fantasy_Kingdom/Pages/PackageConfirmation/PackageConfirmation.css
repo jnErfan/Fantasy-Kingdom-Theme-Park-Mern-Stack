@@ -11,3 +11,12 @@
   background-color: orangered;
   color: #fff;
 }
+.spinner {
+  padding: 100px;
+  position: fixed;
+}
+.alert {
+  position: fixed;
+  margin-top: 130px;
+  filter: opacity(89%);
+}

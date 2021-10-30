@@ -2,25 +2,59 @@ import React, { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router";
 import "./PackageConfirmation.css";
 import { useForm } from "react-hook-form";
-import { FormControl } from "react-bootstrap";
+import { Alert, FormControl, Spinner } from "react-bootstrap";
+import axios from "axios";
+import useAuth from "../../Hooks/useAuth";
 
 const PackageConfirmation = () => {
   const { packageId } = useParams();
   const history = useHistory();
   const [packageDetails, setPackageDetails] = useState([]);
+  const { user } = useAuth();
+  const [loading, setLoading] = useState(false);
+  const [alert, setAlert] = useState(false);
   useEffect(() => {
     fetch(`http://localhost:5000/rides/${packageId}`)
       .then((res) => res.json())
       .then((data) => setPackageDetails(data));
   }, []);
   const packageDetail = packageDetails?.[0];
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
-    console.log(data);
+    data.orderInfo = packageId;
+    data.status = "Pending";
+    reset();
+    axios.post("http://localhost:5000/orderInfo", data).then((result) => {
+      if (result.data.insertedId) {
+        setLoading(true);
+        setTimeout(() => {
+          setAlert(true);
+          setTimeout(() => {
+            history.push("/myOrders");
+          }, 3000);
+        }, 2000);
+      }
+    });
   };
 
   return (
     <div className="container my-5">
+      {loading && (
+        <>
+          <div className="d-flex justify-content-center">
+            <Spinner animation="border" variant="info spinner" />
+          </div>
+        </>
+      )}
+      {alert && (
+        <>
+          <div className="d-flex justify-content-center animate__animated animate__fadeOut animate__delay-3s">
+            <Alert variant="success w-50 py-5 fw-bold alert  animate__animated animate__slow animate__fadeIn">
+              Order Placed Successful! <br /> Please Wait For Approved.
+            </Alert>
+          </div>
+        </>
+      )}
       <div>
         <div>
           <h6 className="text-secondary">ID: {packageId}</h6>
@@ -31,6 +65,7 @@ const PackageConfirmation = () => {
               <form onSubmit={handleSubmit(onSubmit)}>
                 <FormControl
                   type="name"
+                  defaultValue={user?.displayName || ""}
                   placeholder="Name"
                   className="w-100 my-3"
                   {...register("name")}
@@ -38,6 +73,7 @@ const PackageConfirmation = () => {
                 />
                 <FormControl
                   type="email"
+                  defaultValue={user?.email || ""}
                   placeholder="Email"
                   className="w-100 my-3"
                   {...register("email")}
