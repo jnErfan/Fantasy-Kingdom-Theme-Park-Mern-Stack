@@ -15,6 +15,7 @@ import RidesPackage from "./Fantasy_Kingdom/Pages/RidesPackage/RidesPackage";
 import PackageConfirmation from "./Fantasy_Kingdom/Pages/PackageConfirmation/PackageConfirmation";
 import Login from "./Fantasy_Kingdom/Pages/Login/Login";
 import AuthContext from "./Fantasy_Kingdom/Context/AuthContext";
+import PrivateRoute from "./Fantasy_Kingdom/PrivateRoute/PrivateRoute";
 // On Scroll Animation
 Aos.init();
 
@@ -41,25 +42,25 @@ function App() {
               <RidesPackage />
             </Route>
 
-            <Route path="/packageConfirmation/:packageId">
+            <PrivateRoute path="/packageConfirmation/:packageId">
               <PackageConfirmation />
-            </Route>
+            </PrivateRoute>
 
-            <Route path="/contract">
+            <PrivateRoute path="/contract">
               <Contract />
-            </Route>
+            </PrivateRoute>
 
-            <Route path="/myOrders">
+            <PrivateRoute path="/myOrders">
               <MyOrders />
-            </Route>
+            </PrivateRoute>
 
-            <Route path="/addRides">
+            <PrivateRoute path="/addRides">
               <AddRides />
-            </Route>
+            </PrivateRoute>
 
-            <Route path="/manageAllOrders">
+            <PrivateRoute path="/manageAllOrders">
               <ManageAllOrders />
-            </Route>
+            </PrivateRoute>
 
             <Route path="/login">
               <Login />

@@ -15,7 +15,10 @@ const PackageConfirmation = () => {
   }, []);
   const packageDetail = packageDetails?.[0];
   const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    console.log(data);
+  };
+
   return (
     <div className="container my-5">
       <div>
@@ -49,7 +52,7 @@ const PackageConfirmation = () => {
                 />
                 <FormControl
                   type="number"
-                  placeholder="Phone Number"
+                  placeholder="Contract Number"
                   className="w-100 my-3"
                   {...register("number")}
                   required

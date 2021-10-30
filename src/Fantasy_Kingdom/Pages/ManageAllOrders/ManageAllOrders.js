@@ -23,9 +23,9 @@ const ManageAllOrders = () => {
               <thead>
                 <tr className="bg-secondary text-white">
                   <th className="px-5 py-3 border-0 fw-normal">Package</th>
-                  <th className="px-5 py-3 border-0 fw-normal">Package Name</th>
+                  <th className="px-5 py-3 border-0 fw-normal">Package Info</th>
+                  <th className="px-5 py-3 border-0 fw-normal">Buyer Info</th>
                   <th className="px-5 py-3 border-0 fw-normal">Order Date</th>
-                  <th className="px-5 py-3 border-0 fw-normal">Price</th>
                   <th className="px-5 py-3 border-0 fw-normal">Status</th>
                   <th className="px-5 py-3 border-0 fw-normal">Action</th>
                 </tr>
@@ -36,76 +36,47 @@ const ManageAllOrders = () => {
                   <td className="py-3 border-0 d-flex justify-content-center">
                     <div>
                       <img
+                        width="60%"
                         src="https://fantasykingdom.net/wp-content/uploads/2021/08/ticket-3-400x400.jpg"
-                        className="img-fluid cardImage w-50"
+                        className="img-fluid cardImage"
                         alt="packageImage"
                       />
                     </div>
                   </td>
                   <td className="py-4 ps-5 border-0 pt-5">
-                    <h4 className="fw-bold">PARK ENTRY +10 Rides</h4>
-                  </td>
-                  <td className="py-4 ps-5 border-0  pt-5">
-                    <h6 className="text-secondary">
-                      <small>Placed On 22-10-2021</small>
+                    <small className="fw-bold" style={{ fontSize: "10px" }}>
+                      617bcdbf2091f7b8f035e11a
+                    </small>
+                    <h6 style={{ fontSize: "13px" }} className="fw-bold">
+                      PARK ENTRY +10 Rides
                     </h6>
-                  </td>
-                  <td className="py-4 ps-5 border-0  pt-5">
-                    <h5 className="fw-bold">৳900.00</h5>
-                  </td>
-                  <td className="py-4 ps-5 border-0  pt-5">
-                    <span className="packageStatus fw-bold text-white p-3 rounded-pill py-2">
-                      Pending
-                    </span>
-                  </td>
-                  <td className="py-4 ps-5 border-0  pt-4">
-                    <OverlayTrigger
-                      overlay={
-                        <Tooltip id="tooltip-disabled">Approved</Tooltip>
-                      }
-                    >
-                      <button className="btn bg-success p-1 rounded me-3">
-                        <i className="far fa-calendar-check fs-3 text-white"></i>
-                      </button>
-                    </OverlayTrigger>
-                    <OverlayTrigger
-                      overlay={
-                        <Tooltip id="tooltip-disabled">Rejected</Tooltip>
-                      }
-                    >
-                      <button className="btn bg-danger p-1 rounded">
-                        <i className="far fa-trash-alt fs-3 text-white"></i>
-                      </button>
-                    </OverlayTrigger>
-                  </td>
-                </tr>
-                <tr className="border-0">
-                  <td className="py-3 border-0 d-flex justify-content-center">
-                    <div>
-                      <img
-                        src="https://fantasykingdom.net/wp-content/uploads/2021/08/ticket-3-400x400.jpg"
-                        className="img-fluid cardImage w-50"
-                        alt="packageImage"
-                      />
-                    </div>
+                    <h6 style={{ fontSize: "13px" }} className="fw-bold">
+                      ৳ 900.00
+                    </h6>
                   </td>
                   <td className="py-4 ps-5 border-0 pt-5">
-                    <h4 className="fw-bold">PARK ENTRY +10 Rides</h4>
+                    <h6 style={{ fontSize: "13px" }} className="fw-bold">
+                      J.N. Erfan
+                    </h6>
+                    <h6 style={{ fontSize: "13px" }} className="fw-bold ">
+                      j.n.erfan420@gmail.com
+                    </h6>
+                    <h6 className="fw-bold">01978352135</h6>
                   </td>
                   <td className="py-4 ps-5 border-0  pt-5">
-                    <h6 className="text-secondary">
-                      <small>Placed On 22-10-2021</small>
+                    <h6 className="">
+                      <small>
+                        Placed On <br /> 22-10-2021
+                      </small>
                     </h6>
                   </td>
-                  <td className="py-4 ps-5 border-0  pt-5">
-                    <h5 className="fw-bold">৳900.00</h5>
-                  </td>
+
                   <td className="py-4 ps-5 border-0  pt-5">
                     <span className="packageStatus fw-bold text-white p-3 rounded-pill py-2">
                       Pending
                     </span>
                   </td>
-                  <td className="py-4 ps-5 border-0  pt-4">
+                  <td className="py-4 ps-5 border-0  pt-5">
                     <OverlayTrigger
                       overlay={
                         <Tooltip id="tooltip-disabled">Approved</Tooltip>
