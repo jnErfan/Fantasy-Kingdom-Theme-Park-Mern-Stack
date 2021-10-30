@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   Container,
   Nav,
@@ -8,6 +8,7 @@ import {
   Modal,
   SplitButton,
   Dropdown,
+  Badge,
 } from "react-bootstrap";
 import { NavLink, useHistory } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
@@ -19,9 +20,9 @@ const Navbaar = () => {
   const [target, setTarget] = useState(null);
   const ref = useRef(null);
   const [smShow, setSmShow] = useState(false);
+  const [orderPackage, setOrderPackage] = useState([]);
   const history = useHistory();
   const { logOut, user } = useAuth();
-  console.log(user);
   const activeStyle = {
     color: "#000",
     borderBottom: "4px solid #000",
@@ -33,6 +34,11 @@ const Navbaar = () => {
     setTarget(event.target);
   };
 
+  useEffect(() => {
+    fetch(`http://localhost:5000/matchPackage/${user.email}`)
+      .then((res) => res.json())
+      .then((data) => setOrderPackage(data));
+  }, []);
   return (
     <div>
       <Navbar bg="light" expand="lg">
@@ -113,6 +119,9 @@ const Navbaar = () => {
                       to="/myOrders"
                     >
                       My Order
+                      <Badge bg="danger" className="ms-2 p-1 rounded-circle">
+                        {orderPackage.length}
+                      </Badge>
                     </NavLink>
                     <>
                       <span

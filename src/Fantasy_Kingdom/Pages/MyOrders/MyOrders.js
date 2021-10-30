@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import useAuth from "../../Hooks/useAuth";
 import "./MyOrders.css";
@@ -11,6 +12,12 @@ const MyOrders = () => {
       .then((res) => res.json())
       .then((data) => setOrderPackage(data));
   }, []);
+
+  const cancelOrder = (id) => {
+    console.log(id);
+    axios.delete(`http://localhost:5000/deleteOrder/${id}`);
+  };
+
   return (
     <div className="container mt-5">
       <div>
@@ -59,7 +66,10 @@ const MyOrders = () => {
                         </h4>
                         <h5 className="fw-bold">৳ {order?.orderInfo?.price}</h5>
                         <div className="d-flex justify-content-between me-5">
-                          <button className="btn btn-outline-danger fw-bold rounded-pill py-0 px-3">
+                          <button
+                            onClick={() => cancelOrder(order?._id)}
+                            className="btn btn-outline-danger fw-bold rounded-pill py-1 px-3"
+                          >
                             Cancel
                           </button>
                           {order?.status === "Rejected" ? (

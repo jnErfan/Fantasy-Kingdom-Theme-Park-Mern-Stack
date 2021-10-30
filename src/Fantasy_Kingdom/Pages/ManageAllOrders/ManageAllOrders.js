@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { OverlayTrigger, Table, Tooltip, Alert } from "react-bootstrap";
+import { OverlayTrigger, Table, Tooltip, Alert, Badge } from "react-bootstrap";
 import "./ManageAllOrders.css";
 
 const ManageAllOrders = () => {
@@ -82,7 +82,7 @@ const ManageAllOrders = () => {
       </div>
       <div>
         <div className="manageOrderText mt-4 mb-5">
-          <h1>Manage All Orders</h1>
+          <h1>Manage All Orders </h1>
         </div>
         <div className="container">
           <div
@@ -92,7 +92,12 @@ const ManageAllOrders = () => {
             <Table bordered hover responsive="md">
               <thead>
                 <tr className="bg-secondary text-white">
-                  <th className="px-5 py-3 border-0 fw-normal">Package</th>
+                  <th className="px-5 py-3 border-0 fw-normal">
+                    Orders{" "}
+                    <Badge pill bg="danger" className="fw-bold">
+                      {allOrder.length}
+                    </Badge>
+                  </th>
                   <th className="px-5 py-3 border-0 fw-normal">Package Info</th>
                   <th className="px-5 py-3 border-0 fw-normal">Buyer Info</th>
                   <th className="px-5 py-3 border-0 fw-normal">Order Date</th>
