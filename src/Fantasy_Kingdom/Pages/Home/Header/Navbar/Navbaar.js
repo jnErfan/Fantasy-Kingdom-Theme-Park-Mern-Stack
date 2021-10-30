@@ -45,7 +45,7 @@ const Navbaar = () => {
   }, [dataChainge]);
   return (
     <div>
-      <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
+      <Navbar collapseOnSelect expand="lg" bg="white" variant="light">
         <Container fluid>
           <Navbar.Brand href="/home">
             <img
@@ -73,7 +73,7 @@ const Navbaar = () => {
               </NavLink>
               <SplitButton
                 href="#ExplorePark"
-                variant="fight fw-bold"
+                variant="fight fw-bold parks"
                 title="Parks"
               >
                 <Dropdown.Item className="navItem2">
@@ -114,7 +114,7 @@ const Navbaar = () => {
                   {" "}
                   <NavLink
                     activeStyle={activeStyle}
-                    className="me-1 text-decoration-none fw-bold navItem"
+                    className="me-1 text-decoration-none fw-bold navItem orderMargin"
                     to="/myOrders"
                   >
                     My Order
@@ -127,7 +127,7 @@ const Navbaar = () => {
                       onClick={() => setSmShow(true)}
                       className="ms-5 adminLogo"
                     >
-                      <span className="fw-bold">ADMIN</span>
+                      <span className="fw-bold ">ADMIN</span>
                       <img
                         src="https://img.icons8.com/fluency/48/000000/admin-settings-male.png"
                         alt=""
