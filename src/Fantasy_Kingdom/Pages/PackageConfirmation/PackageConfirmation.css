@@ -14,9 +14,11 @@
 .spinner {
   padding: 100px;
   position: fixed;
+  cursor: wait;
 }
 .alert {
   position: fixed;
   margin-top: 130px;
   filter: opacity(89%);
+  cursor: wait;
 }

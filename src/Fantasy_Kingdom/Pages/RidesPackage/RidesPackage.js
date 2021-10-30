@@ -25,10 +25,11 @@ const RidesPackage = () => {
         setPageCount(Math.ceil(count / size));
       });
   }, [page]);
+  console.log(ridesPackage);
   return (
     <div className="container my-5">
       {!ridesPackage.length ? (
-        <Spinner animation="border" variant="info spinner" />
+        <Spinner animation="border" variant="info ridesSpinner" />
       ) : (
         <>
           {" "}
