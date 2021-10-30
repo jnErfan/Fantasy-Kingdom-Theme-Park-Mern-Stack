@@ -13,11 +13,18 @@ import "./RidesPackage.css";
 const RidesPackage = () => {
   const [ridesPackage, setPackage] = useState([]);
   const history = useHistory();
+  const [page, setPage] = useState(0);
+  const [pageCounts, setPageCount] = useState(0);
+  const size = 6;
   useEffect(() => {
-    fetch("http://localhost:5000/rides")
+    fetch(`http://localhost:5000/pagination?page=${page}&&size=${size}`)
       .then((res) => res.json())
-      .then((data) => setPackage(data));
-  }, []);
+      .then((data) => {
+        setPackage(data?.ridesPackage);
+        const count = data?.count;
+        setPageCount(Math.ceil(count / size));
+      });
+  }, [page]);
   return (
     <div className="container my-5">
       {!ridesPackage.length ? (
@@ -63,6 +70,21 @@ const RidesPackage = () => {
           </div>
         </>
       )}
+      <div className="mt-5">
+        {[...Array(pageCounts).keys()].map((pageNum) => (
+          <button
+            key={pageNum}
+            onClick={() => setPage(pageNum)}
+            className={
+              pageNum === page
+                ? "btn btn-info mx-2 fw-bold"
+                : "btn btn-outline-info fw-bold mx-2"
+            }
+          >
+            {pageNum + 1}
+          </button>
+        ))}
+      </div>
     </div>
   );
 };

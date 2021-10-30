@@ -13,6 +13,7 @@ import "./Rides.css";
 const Rides = () => {
   const [ridesPackage, setRidesPackage] = useState([]);
   const history = useHistory();
+
   useEffect(() => {
     fetch("http://localhost:5000/ridesPackageHome")
       .then((res) => res.json())
@@ -58,6 +59,12 @@ const Rides = () => {
               </OverlayTrigger>
             ))}
           </Row>
+          <button
+            onClick={() => history.push("/ridesPackage")}
+            className="btn fs-5 text-info mt-5 fw-bold"
+          >
+            See All <br /> <i className="fas fa-chevron-down"></i>
+          </button>
         </div>
       )}
     </div>
