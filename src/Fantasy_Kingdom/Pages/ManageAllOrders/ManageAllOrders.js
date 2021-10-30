@@ -1,8 +1,15 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import { OverlayTrigger, Table, Tooltip } from "react-bootstrap";
 import "./ManageAllOrders.css";
 
 const ManageAllOrders = () => {
+  const [allOrder, setAllOrder] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:5000/allOrders")
+      .then((res) => res.json())
+      .then((data) => setAllOrder(data));
+  }, []);
+  console.log(allOrder);
   return (
     <div className="container mt-4">
       <div>
@@ -32,71 +39,72 @@ const ManageAllOrders = () => {
               </thead>
 
               <tbody>
-                <tr className="border-0">
-                  <td className="py-3 border-0 d-flex justify-content-center">
-                    <div>
-                      <img
-                        width="60%"
-                        src="https://fantasykingdom.net/wp-content/uploads/2021/08/ticket-3-400x400.jpg"
-                        className="img-fluid cardImage"
-                        alt="packageImage"
-                      />
-                    </div>
-                  </td>
-                  <td className="py-4 ps-5 border-0 pt-5">
-                    <small className="fw-bold" style={{ fontSize: "10px" }}>
-                      617bcdbf2091f7b8f035e11a
-                    </small>
-                    <h6 style={{ fontSize: "13px" }} className="fw-bold">
-                      PARK ENTRY +10 Rides
-                    </h6>
-                    <h6 style={{ fontSize: "13px" }} className="fw-bold">
-                      ৳ 900.00
-                    </h6>
-                  </td>
-                  <td className="py-4 ps-5 border-0 pt-5">
-                    <h6 style={{ fontSize: "13px" }} className="fw-bold">
-                      J.N. Erfan
-                    </h6>
-                    <h6 style={{ fontSize: "13px" }} className="fw-bold ">
-                      j.n.erfan420@gmail.com
-                    </h6>
-                    <h6 className="fw-bold">01978352135</h6>
-                  </td>
-                  <td className="py-4 ps-5 border-0  pt-5">
-                    <h6 className="">
-                      <small>
-                        Placed On <br /> 22-10-2021
+                {allOrder.map((orders) => (
+                  <tr className="border-0" key={orders?._id}>
+                    <td className="py-3 border-0 d-flex justify-content-center">
+                      <div>
+                        <img
+                          width="60%"
+                          src={orders?.orderInfo?.img}
+                          alt="packageImage"
+                        />
+                      </div>
+                    </td>
+                    <td className="py-4 ps-5 border-0 pt-5">
+                      <small className="fw-bold" style={{ fontSize: "10px" }}>
+                        {orders?.orderInfo?._id}
                       </small>
-                    </h6>
-                  </td>
+                      <h6 style={{ fontSize: "13px" }} className="fw-bold">
+                        {orders?.orderInfo?.rideName}
+                      </h6>
+                      <h6 style={{ fontSize: "13px" }} className="fw-bold">
+                        {orders?.orderInfo?.price}
+                      </h6>
+                    </td>
+                    <td className="py-4 ps-5 border-0 pt-5">
+                      <h6 style={{ fontSize: "13px" }} className="fw-bold">
+                        {orders?.name}
+                      </h6>
+                      <h6 style={{ fontSize: "13px" }} className="fw-bold ">
+                        {orders?.email}
+                      </h6>
+                      <h6 className="fw-bold">{orders?.number}</h6>
+                    </td>
+                    <td className="py-4 ps-5 border-0  pt-5">
+                      <h6 className="">
+                        <small>
+                          Placed On <br /> {orders?.date}
+                        </small>
+                      </h6>
+                    </td>
 
-                  <td className="py-4 ps-5 border-0  pt-5">
-                    <span className="packageStatus fw-bold text-white p-3 rounded-pill py-2">
-                      Pending
-                    </span>
-                  </td>
-                  <td className="py-4 ps-5 border-0  pt-5">
-                    <OverlayTrigger
-                      overlay={
-                        <Tooltip id="tooltip-disabled">Approved</Tooltip>
-                      }
-                    >
-                      <button className="btn bg-success p-1 rounded me-3">
-                        <i className="far fa-calendar-check fs-3 text-white"></i>
-                      </button>
-                    </OverlayTrigger>
-                    <OverlayTrigger
-                      overlay={
-                        <Tooltip id="tooltip-disabled">Rejected</Tooltip>
-                      }
-                    >
-                      <button className="btn bg-danger p-1 rounded">
-                        <i className="far fa-trash-alt fs-3 text-white"></i>
-                      </button>
-                    </OverlayTrigger>
-                  </td>
-                </tr>
+                    <td className="py-4 ps-5 border-0  pt-5">
+                      <span className="packageStatus fw-bold text-white p-3 rounded-pill py-2">
+                        Pending
+                      </span>
+                    </td>
+                    <td className="py-4 ps-5 border-0  pt-5">
+                      <OverlayTrigger
+                        overlay={
+                          <Tooltip id="tooltip-disabled">Approved</Tooltip>
+                        }
+                      >
+                        <button className="btn bg-success p-1 rounded me-3">
+                          <i className="far fa-calendar-check fs-3 text-white"></i>
+                        </button>
+                      </OverlayTrigger>
+                      <OverlayTrigger
+                        overlay={
+                          <Tooltip id="tooltip-disabled">Rejected</Tooltip>
+                        }
+                      >
+                        <button className="btn bg-danger p-1 rounded">
+                          <i className="far fa-trash-alt fs-3 text-white"></i>
+                        </button>
+                      </OverlayTrigger>
+                    </td>
+                  </tr>
+                ))}
               </tbody>
             </Table>
           </div>

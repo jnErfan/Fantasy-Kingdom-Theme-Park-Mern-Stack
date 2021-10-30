@@ -37,7 +37,7 @@ const MyOrders = () => {
                     </div>
                     <div className="col-md-8">
                       <div className="card-body text-start">
-                        <h6>Order Id {order.orderInfo._id}</h6>
+                        <h6>Order Id {order._id}</h6>
                         <h6 className="text-secondary">
                           <small>Placed On {order.date}</small>
                         </h6>
