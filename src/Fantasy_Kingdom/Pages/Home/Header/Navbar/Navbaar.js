@@ -20,7 +20,8 @@ const Navbaar = () => {
   const [target, setTarget] = useState(null);
   const ref = useRef(null);
   const [smShow, setSmShow] = useState(false);
-  const [orderPackage, setOrderPackage] = useState([]);
+  const [orderQuantity, setOrderQuantity] = useState([]);
+  const [dataChainge, setDataChainge] = useState("");
   const history = useHistory();
   const { logOut, user } = useAuth();
   const activeStyle = {
@@ -37,8 +38,11 @@ const Navbaar = () => {
   useEffect(() => {
     fetch(`http://localhost:5000/matchPackage/${user.email}`)
       .then((res) => res.json())
-      .then((data) => setOrderPackage(data));
-  }, []);
+      .then((data) => {
+        setOrderQuantity(data);
+        setDataChainge(data);
+      });
+  }, [dataChainge]);
   return (
     <div>
       <Navbar bg="light" expand="lg">
@@ -120,7 +124,7 @@ const Navbaar = () => {
                     >
                       My Order
                       <Badge bg="danger" className="ms-2 p-1 rounded-circle">
-                        {orderPackage.length}
+                        {orderQuantity.length}
                       </Badge>
                     </NavLink>
                     <>

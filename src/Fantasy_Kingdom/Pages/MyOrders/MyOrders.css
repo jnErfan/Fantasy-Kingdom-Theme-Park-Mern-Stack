@@ -14,3 +14,10 @@
 .cardImage {
   border-radius: 20px;
 }
+
+.alertCon {
+  position: fixed;
+  margin-top: 130px;
+  filter: opacity(89%);
+  z-index: 2;
+}

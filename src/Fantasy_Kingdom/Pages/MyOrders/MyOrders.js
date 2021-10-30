@@ -1,30 +1,60 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { Alert } from "react-bootstrap";
 import useAuth from "../../Hooks/useAuth";
 import "./MyOrders.css";
 
 const MyOrders = () => {
   const [orderPackage, setOrderPackage] = useState([]);
+  const [orderCancel, setOrderCancel] = useState("");
+  const [alertConfirmation, setAlertConfirmation] = useState(false);
   const { user } = useAuth();
 
   useEffect(() => {
     fetch(`http://localhost:5000/matchPackage/${user.email}`)
       .then((res) => res.json())
-      .then((data) => setOrderPackage(data));
-  }, []);
+      .then((data) => {
+        setOrderCancel(data);
+        setOrderPackage(data);
+      });
+  }, [orderCancel]);
 
   const cancelOrder = (id) => {
-    console.log(id);
-    axios.delete(`http://localhost:5000/deleteOrder/${id}`);
+    const confirmation = prompt("Drop (CANCEL) This To Cancel Confirm.");
+    if (confirmation === "CANCEL") {
+      setAlertConfirmation(true);
+      axios.delete(`http://localhost:5000/deleteOrder/${id}`).then((result) => {
+        if (result.data.deletedCount === 1) {
+          setTimeout(() => {
+            setAlertConfirmation(false);
+          }, 2000);
+        }
+      });
+    } else if (confirmation === null) {
+      return;
+    } else {
+      alert("Wrong Word Type");
+    }
   };
-
   return (
     <div className="container mt-5">
       <div>
+        {alertConfirmation && (
+          <>
+            <div className="d-flex justify-content-center">
+              <Alert variant="danger w-50 py-5 fw-bold alertCon   animate__animated animate__fadeOut animate__delay-1s">
+                Cancel Successful!
+              </Alert>
+            </div>
+          </>
+        )}
         <div className="">
           <div className="orderText mt-4 mb-5">
             <h1>My Package Orders</h1>
           </div>
+          {!orderPackage.length && (
+            <h1 className="text-secondary fw-bold mt-5">No Order</h1>
+          )}
           <div className="row row-cols-2">
             {orderPackage.map((order) => (
               <div
