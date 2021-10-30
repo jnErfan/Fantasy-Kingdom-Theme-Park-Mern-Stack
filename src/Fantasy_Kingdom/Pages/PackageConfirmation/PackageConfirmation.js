@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useHistory, useParams } from "react-router";
+import { useHistory, useParams } from "react-router-dom";
 import "./PackageConfirmation.css";
 import { useForm } from "react-hook-form";
 import { Alert, FormControl, Spinner } from "react-bootstrap";
@@ -30,6 +30,7 @@ const PackageConfirmation = () => {
         setTimeout(() => {
           setAlert(true);
           setTimeout(() => {
+            setLoading(false);
             history.push("/myOrders");
           }, 3000);
         }, 2000);
@@ -42,7 +43,7 @@ const PackageConfirmation = () => {
       {loading && (
         <>
           <div className="d-flex justify-content-center">
-            <Spinner animation="border" variant="info spinner" />
+            <Spinner animation="border" variant="primary spinner" />
           </div>
         </>
       )}

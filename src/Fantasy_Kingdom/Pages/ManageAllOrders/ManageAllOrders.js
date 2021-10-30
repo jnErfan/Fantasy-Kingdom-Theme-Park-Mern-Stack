@@ -1,17 +1,80 @@
+import axios from "axios";
 import { useState, useEffect } from "react";
-import { OverlayTrigger, Table, Tooltip } from "react-bootstrap";
+import { OverlayTrigger, Table, Tooltip, Alert } from "react-bootstrap";
 import "./ManageAllOrders.css";
 
 const ManageAllOrders = () => {
   const [allOrder, setAllOrder] = useState([]);
+  const [updateUi, setUpdateUi] = useState({});
+  const [alert, setAlert] = useState(false);
+  const [alertReject, setAlertReject] = useState(false);
   useEffect(() => {
     fetch("http://localhost:5000/allOrders")
       .then((res) => res.json())
-      .then((data) => setAllOrder(data));
-  }, []);
-  console.log(allOrder);
+      .then((data) => {
+        setUpdateUi(data);
+        setAllOrder(data);
+      });
+  }, [updateUi]);
+
+  const approvedOrder = (id) => {
+    const status = {
+      status: "Approved",
+    };
+    axios
+      .put(`http://localhost:5000/orderStatus/${id}`, status)
+      .then((result) => {
+        if (result.data.modifiedCount === 1) {
+          setAlert(true);
+          setTimeout(() => {
+            setAlert(false);
+          }, 3000);
+        } else {
+          return;
+        }
+      });
+  };
+
+  const rejectedOrder = (id) => {
+    const reason = prompt("Why You Want To Reject This Order");
+    if (reason === null) {
+      return;
+    } else {
+      const status = {
+        status: "Rejected",
+        rejectReason: reason,
+      };
+      axios
+        .put(`http://localhost:5000/orderStatus/${id}`, status)
+        .then((result) => {
+          if (result.data.modifiedCount === 1) {
+            setAlertReject(true);
+            setTimeout(() => {
+              setAlertReject(false);
+            }, 3000);
+          } else {
+            return;
+          }
+        });
+    }
+  };
+
   return (
     <div className="container mt-4">
+      {alert && (
+        <div className="d-flex justify-content-center">
+          <Alert variant="success w-50 py-5 fw-bold addAlert   animate__animated animate__fadeOut animate__delay-2s animate__animated animate__slow animate__fadeIn">
+            Approved Successful!
+          </Alert>
+        </div>
+      )}
+      {alertReject && (
+        <div className="d-flex justify-content-center">
+          <Alert variant="danger w-50 py-5 fw-bold addAlert   animate__animated animate__fadeOut animate__delay-2s animate__animated animate__slow animate__fadeIn">
+            Reject Successful!
+          </Alert>
+        </div>
+      )}
       <div>
         <h1 className="text-end" style={{ fontFamily: "'Teko', sans-serif" }}>
           <span style={{ color: "#FF6600" }}>ADMIN</span> PANEL
@@ -79,9 +142,21 @@ const ManageAllOrders = () => {
                     </td>
 
                     <td className="py-4 ps-5 border-0  pt-5">
-                      <span className="packageStatus fw-bold text-white p-3 rounded-pill py-2">
-                        Pending
-                      </span>
+                      {orders?.status === "Rejected" ? (
+                        <>
+                          <span className="packageStatus2 fw-bold text-white p-3 rounded-pill py-2 bg-danger">
+                            {orders?.status}
+                          </span>
+                        </>
+                      ) : orders?.status === "Pending" ? (
+                        <span className="status text-white p-3 rounded-pill py-2">
+                          {orders?.status}
+                        </span>
+                      ) : (
+                        <span className="packageStatus2 fw-bold text-white p-3 rounded-pill py-2 bg-success">
+                          {orders?.status}
+                        </span>
+                      )}
                     </td>
                     <td className="py-4 ps-5 border-0  pt-5">
                       <OverlayTrigger
@@ -89,7 +164,10 @@ const ManageAllOrders = () => {
                           <Tooltip id="tooltip-disabled">Approved</Tooltip>
                         }
                       >
-                        <button className="btn bg-success p-1 rounded me-3">
+                        <button
+                          onClick={() => approvedOrder(orders._id)}
+                          className="btn bg-success p-1 rounded me-3"
+                        >
                           <i className="far fa-calendar-check fs-3 text-white"></i>
                         </button>
                       </OverlayTrigger>
@@ -98,7 +176,10 @@ const ManageAllOrders = () => {
                           <Tooltip id="tooltip-disabled">Rejected</Tooltip>
                         }
                       >
-                        <button className="btn bg-danger p-1 rounded">
+                        <button
+                          onClick={() => rejectedOrder(orders._id)}
+                          className="btn bg-danger p-1 rounded"
+                        >
                           <i className="far fa-trash-alt fs-3 text-white"></i>
                         </button>
                       </OverlayTrigger>

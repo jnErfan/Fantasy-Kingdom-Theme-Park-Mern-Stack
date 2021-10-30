@@ -22,14 +22,14 @@ const MyOrders = () => {
             {orderPackage.map((order) => (
               <div
                 className="col col-12 col-md-12 col-lg-6 d-flex justify-content-center  mb-3"
-                key={order.orderInfo._id}
+                key={order?.orderInfo?._id}
               >
                 <div className="card mb-3 ps-5 border-0">
                   <div className="row g-0 shadow-lg cardMain">
                     <div className="col-md-4 d-flex align-items-center">
                       <div className="ps-3">
                         <img
-                          src={order.orderInfo.img}
+                          src={order?.orderInfo?.img}
                           className="img-fluid cardImage w-100"
                           alt="packageImage"
                         />
@@ -37,25 +37,46 @@ const MyOrders = () => {
                     </div>
                     <div className="col-md-8">
                       <div className="card-body text-start">
-                        <h6>Order Id {order._id}</h6>
+                        <h6>
+                          <small>Order Id {order?._id}</small>
+                        </h6>
                         <h6 className="text-secondary">
-                          <small>Placed On {order.date}</small>
+                          <small>Placed On {order?.date}</small>
                         </h6>
                         <h6 className="text-secondary mb-3">
-                          <small>Estimated Time ...</small>
+                          {order?.status === "Rejected" && (
+                            <>
+                              <span>
+                                <small className="text-danger fw-bold">
+                                  {order?.rejectReason}
+                                </small>
+                              </span>
+                            </>
+                          )}
                         </h6>
                         <h4 className="card-title fw-bold">
-                          {order.orderInfo.rideName}
+                          {order?.orderInfo?.rideName}
                         </h4>
-                        <h5 className="fw-bold">৳ {order.orderInfo.price}</h5>
+                        <h5 className="fw-bold">৳ {order?.orderInfo?.price}</h5>
                         <div className="d-flex justify-content-between me-5">
                           <button className="btn btn-outline-danger fw-bold rounded-pill py-0 px-3">
                             Cancel
                           </button>
-
-                          <span className="status text-white p-3 rounded-pill py-2">
-                            {order.status}
-                          </span>
+                          {order?.status === "Rejected" ? (
+                            <>
+                              <span className="packageStatus2 fw-bold text-white p-3 rounded-pill py-2 bg-danger">
+                                {order?.status}
+                              </span>
+                            </>
+                          ) : order?.status === "Pending" ? (
+                            <span className="status text-white p-3 rounded-pill py-2">
+                              {order?.status}
+                            </span>
+                          ) : (
+                            <span className="packageStatus2 fw-bold text-white p-3 rounded-pill py-2 bg-success">
+                              {order?.status}
+                            </span>
+                          )}
                         </div>
                       </div>
                     </div>

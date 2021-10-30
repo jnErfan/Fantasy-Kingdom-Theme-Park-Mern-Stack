@@ -7,7 +7,7 @@ import {
   Spinner,
   Tooltip,
 } from "react-bootstrap";
-import { useHistory } from "react-router";
+import { useHistory } from "react-router-dom";
 import "./RidesPackage.css";
 
 const RidesPackage = () => {

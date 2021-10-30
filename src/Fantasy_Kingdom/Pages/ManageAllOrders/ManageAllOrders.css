@@ -4,6 +4,10 @@
   border-bottom: 5px solid #212529;
   border-radius: 15px;
 }
-.packageStatus {
+.packageStatus1 {
   background-color: #535353;
+  font-family: monospace;
+}
+.packageStatus2 {
+  font-family: monospace;
 }

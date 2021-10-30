@@ -8,3 +8,13 @@
   border-bottom: 5px solid #212529;
   border-radius: 15px;
 }
+
+.addSpinner {
+  padding: 100px;
+  margin-top: 90px;
+  position: fixed;
+}
+.addAlert {
+  position: fixed;
+  margin-top: 130px;
+}

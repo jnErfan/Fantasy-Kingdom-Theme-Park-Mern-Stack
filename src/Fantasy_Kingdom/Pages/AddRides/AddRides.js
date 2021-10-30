@@ -1,14 +1,45 @@
-import React from "react";
-import { Form, FormControl } from "react-bootstrap";
+import axios from "axios";
+import React, { useState } from "react";
+import { Alert, Form, FormControl, Spinner } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import "./AddRides.css";
 
 const AddRides = () => {
-  const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => console.log(data);
-
+  const [alert, setAlert] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const { register, handleSubmit, reset } = useForm();
+  const onSubmit = (data) => {
+    axios.post("http://localhost:5000/rides", data).then((result) => {
+      if (result.data.insertedId) {
+        setLoading(true);
+        setTimeout(() => {
+          setAlert(true);
+          setTimeout(() => {
+            setLoading(false);
+            reset();
+          }, 4000);
+        }, 1000);
+      }
+    });
+  };
   return (
     <div className="container my-4">
+      {loading && (
+        <>
+          <div className="d-flex justify-content-center">
+            <Spinner animation="border" variant="info addSpinner" />
+          </div>
+        </>
+      )}
+      {alert && (
+        <>
+          <div className="d-flex justify-content-center">
+            <Alert variant="success w-50 py-5 fw-bold addAlert   animate__animated animate__fadeOut animate__delay-3s animate__animated animate__slow animate__fadeIn">
+              Package Add Successful!
+            </Alert>
+          </div>
+        </>
+      )}
       <div>
         <div>
           <h1 className="text-end" style={{ fontFamily: "'Teko', sans-serif" }}>
@@ -25,7 +56,6 @@ const AddRides = () => {
                 <Form.Label>Rides Package Name</Form.Label>
                 <FormControl
                   className="w-100 mb-4"
-                  id="rideName"
                   type="text"
                   placeholder="Rides Package Name"
                   required
@@ -35,7 +65,6 @@ const AddRides = () => {
                 <FormControl
                   as="textarea"
                   className="w-100 mb-4"
-                  id="description"
                   placeholder="Description"
                   required
                   {...register("description")}
@@ -44,7 +73,6 @@ const AddRides = () => {
                 <FormControl
                   className="w-100 mb-4"
                   type="number"
-                  id=""
                   placeholder="Package Price"
                   required
                   {...register("price")}
@@ -54,18 +82,16 @@ const AddRides = () => {
                 <FormControl
                   className="w-100 mb-4"
                   type="url"
-                  id="imageUrl"
                   placeholder="Rides Package Image Url"
+                  {...register("img")}
                   required
-                  {...register("image")}
                 />
 
                 <FormControl
                   className="w-100 mb-4"
                   type="file"
-                  id="image"
                   required
-                  {...register("image")}
+                  disabled
                 />
 
                 <FormControl
