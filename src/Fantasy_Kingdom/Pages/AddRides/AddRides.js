@@ -9,18 +9,20 @@ const AddRides = () => {
   const [loading, setLoading] = useState(false);
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
-    axios.post("http://localhost:5000/rides", data).then((result) => {
-      if (result.data.insertedId) {
-        setLoading(true);
-        setTimeout(() => {
-          setAlert(true);
+    axios
+      .post("https://fantasy-kingdom-server.herokuapp.com/rides", data)
+      .then((result) => {
+        if (result.data.insertedId) {
+          setLoading(true);
           setTimeout(() => {
-            setLoading(false);
-            reset();
-          }, 4000);
-        }, 1000);
-      }
-    });
+            setAlert(true);
+            setTimeout(() => {
+              setLoading(false);
+              reset();
+            }, 4000);
+          }, 1000);
+        }
+      });
   };
   return (
     <div className="container my-4">

@@ -21,3 +21,9 @@
   filter: opacity(89%);
   z-index: 2;
 }
+.myOrderSpinner {
+  padding: 100px;
+  margin-top: 100px;
+  margin-bottom: 300px;
+  cursor: wait;
+}

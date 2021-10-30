@@ -1,6 +1,13 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { OverlayTrigger, Table, Tooltip, Alert, Badge } from "react-bootstrap";
+import {
+  OverlayTrigger,
+  Table,
+  Tooltip,
+  Alert,
+  Badge,
+  Spinner,
+} from "react-bootstrap";
 import "./ManageAllOrders.css";
 
 const ManageAllOrders = () => {
@@ -9,7 +16,7 @@ const ManageAllOrders = () => {
   const [alert, setAlert] = useState(false);
   const [alertReject, setAlertReject] = useState(false);
   useEffect(() => {
-    fetch("http://localhost:5000/allOrders")
+    fetch("https://fantasy-kingdom-server.herokuapp.com/allOrders")
       .then((res) => res.json())
       .then((data) => {
         setUpdateUi(data);
@@ -22,7 +29,10 @@ const ManageAllOrders = () => {
       status: "Approved",
     };
     axios
-      .put(`http://localhost:5000/orderStatus/${id}`, status)
+      .put(
+        `https://fantasy-kingdom-server.herokuapp.com/orderStatus/${id}`,
+        status
+      )
       .then((result) => {
         if (result.data.modifiedCount === 1) {
           setAlert(true);
@@ -45,7 +55,10 @@ const ManageAllOrders = () => {
         rejectReason: reason,
       };
       axios
-        .put(`http://localhost:5000/orderStatus/${id}`, status)
+        .put(
+          `https://fantasy-kingdom-server.herokuapp.com/orderStatus/${id}`,
+          status
+        )
         .then((result) => {
           if (result.data.modifiedCount === 1) {
             setAlertReject(true);
@@ -85,115 +98,121 @@ const ManageAllOrders = () => {
           <h1>Manage All Orders </h1>
         </div>
         <div className="container">
-          <div
-            style={{ borderRadius: "15px" }}
-            className="d-flex justify-content-center mt-5 shadow-lg py-5"
-          >
-            <Table bordered hover responsive="md">
-              <thead>
-                <tr className="bg-secondary text-white">
-                  <th className="px-5 py-3 border-0 fw-normal">
-                    Orders{" "}
-                    <Badge pill bg="danger" className="fw-bold">
-                      {allOrder.length}
-                    </Badge>
-                  </th>
-                  <th className="px-5 py-3 border-0 fw-normal">Package Info</th>
-                  <th className="px-5 py-3 border-0 fw-normal">Buyer Info</th>
-                  <th className="px-5 py-3 border-0 fw-normal">Order Date</th>
-                  <th className="px-5 py-3 border-0 fw-normal">Status</th>
-                  <th className="px-5 py-3 border-0 fw-normal">Action</th>
-                </tr>
-              </thead>
+          {!allOrder.length ? (
+            <Spinner animation="border" variant="info manageSpinner" />
+          ) : (
+            <div
+              style={{ borderRadius: "15px" }}
+              className="d-flex justify-content-center mt-5 shadow-lg py-5"
+            >
+              <Table bordered hover responsive="md">
+                <thead>
+                  <tr className="bg-secondary text-white">
+                    <th className="px-5 py-3 border-0 fw-normal">
+                      Orders{" "}
+                      <Badge pill bg="danger" className="fw-bold">
+                        {allOrder.length}
+                      </Badge>
+                    </th>
+                    <th className="px-5 py-3 border-0 fw-normal">
+                      Package Info
+                    </th>
+                    <th className="px-5 py-3 border-0 fw-normal">Buyer Info</th>
+                    <th className="px-5 py-3 border-0 fw-normal">Order Date</th>
+                    <th className="px-5 py-3 border-0 fw-normal">Status</th>
+                    <th className="px-5 py-3 border-0 fw-normal">Action</th>
+                  </tr>
+                </thead>
 
-              <tbody>
-                {allOrder.map((orders) => (
-                  <tr className="border-0" key={orders?._id}>
-                    <td className="py-3 border-0 d-flex justify-content-center">
-                      <div>
-                        <img
-                          width="60%"
-                          src={orders?.orderInfo?.img}
-                          alt="packageImage"
-                        />
-                      </div>
-                    </td>
-                    <td className="py-4 ps-5 border-0 pt-5">
-                      <small className="fw-bold" style={{ fontSize: "10px" }}>
-                        {orders?.orderInfo?._id}
-                      </small>
-                      <h6 style={{ fontSize: "13px" }} className="fw-bold">
-                        {orders?.orderInfo?.rideName}
-                      </h6>
-                      <h6 style={{ fontSize: "13px" }} className="fw-bold">
-                        {orders?.orderInfo?.price}
-                      </h6>
-                    </td>
-                    <td className="py-4 ps-5 border-0 pt-5">
-                      <h6 style={{ fontSize: "13px" }} className="fw-bold">
-                        {orders?.name}
-                      </h6>
-                      <h6 style={{ fontSize: "13px" }} className="fw-bold ">
-                        {orders?.email}
-                      </h6>
-                      <h6 className="fw-bold">{orders?.number}</h6>
-                    </td>
-                    <td className="py-4 ps-5 border-0  pt-5">
-                      <h6 className="">
-                        <small>
-                          Placed On <br /> {orders?.date}
+                <tbody>
+                  {allOrder.map((orders) => (
+                    <tr className="border-0" key={orders?._id}>
+                      <td className="py-3 border-0 d-flex justify-content-center">
+                        <div>
+                          <img
+                            width="60%"
+                            src={orders?.orderInfo?.img}
+                            alt="packageImage"
+                          />
+                        </div>
+                      </td>
+                      <td className="py-4 ps-5 border-0 pt-5">
+                        <small className="fw-bold" style={{ fontSize: "10px" }}>
+                          {orders?.orderInfo?._id}
                         </small>
-                      </h6>
-                    </td>
+                        <h6 style={{ fontSize: "13px" }} className="fw-bold">
+                          {orders?.orderInfo?.rideName}
+                        </h6>
+                        <h6 style={{ fontSize: "13px" }} className="fw-bold">
+                          {orders?.orderInfo?.price}
+                        </h6>
+                      </td>
+                      <td className="py-4 ps-5 border-0 pt-5">
+                        <h6 style={{ fontSize: "13px" }} className="fw-bold">
+                          {orders?.name}
+                        </h6>
+                        <h6 style={{ fontSize: "13px" }} className="fw-bold ">
+                          {orders?.email}
+                        </h6>
+                        <h6 className="fw-bold">{orders?.number}</h6>
+                      </td>
+                      <td className="py-4 ps-5 border-0  pt-5">
+                        <h6 className="">
+                          <small>
+                            Placed On <br /> {orders?.date}
+                          </small>
+                        </h6>
+                      </td>
 
-                    <td className="py-4 ps-5 border-0  pt-5">
-                      {orders?.status === "Rejected" ? (
-                        <>
-                          <span className="packageStatus2 fw-bold text-white p-3 rounded-pill py-2 bg-danger">
+                      <td className="py-4 ps-5 border-0  pt-5">
+                        {orders?.status === "Rejected" ? (
+                          <>
+                            <span className="packageStatus2 fw-bold text-white p-3 rounded-pill py-2 bg-danger">
+                              {orders?.status}
+                            </span>
+                          </>
+                        ) : orders?.status === "Pending" ? (
+                          <span className="status text-white p-3 rounded-pill py-2">
                             {orders?.status}
                           </span>
-                        </>
-                      ) : orders?.status === "Pending" ? (
-                        <span className="status text-white p-3 rounded-pill py-2">
-                          {orders?.status}
-                        </span>
-                      ) : (
-                        <span className="packageStatus2 fw-bold text-white p-3 rounded-pill py-2 bg-success">
-                          {orders?.status}
-                        </span>
-                      )}
-                    </td>
-                    <td className="py-4 ps-5 border-0  pt-5">
-                      <OverlayTrigger
-                        overlay={
-                          <Tooltip id="tooltip-disabled">Approved</Tooltip>
-                        }
-                      >
-                        <button
-                          onClick={() => approvedOrder(orders._id)}
-                          className="btn bg-success p-1 rounded me-3"
+                        ) : (
+                          <span className="packageStatus2 fw-bold text-white p-3 rounded-pill py-2 bg-success">
+                            {orders?.status}
+                          </span>
+                        )}
+                      </td>
+                      <td className="py-4 ps-5 border-0  pt-5">
+                        <OverlayTrigger
+                          overlay={
+                            <Tooltip id="tooltip-disabled">Approved</Tooltip>
+                          }
                         >
-                          <i className="far fa-calendar-check fs-3 text-white"></i>
-                        </button>
-                      </OverlayTrigger>
-                      <OverlayTrigger
-                        overlay={
-                          <Tooltip id="tooltip-disabled">Rejected</Tooltip>
-                        }
-                      >
-                        <button
-                          onClick={() => rejectedOrder(orders._id)}
-                          className="btn bg-danger p-1 rounded"
+                          <button
+                            onClick={() => approvedOrder(orders._id)}
+                            className="btn bg-success p-1 rounded me-3"
+                          >
+                            <i className="far fa-calendar-check fs-3 text-white"></i>
+                          </button>
+                        </OverlayTrigger>
+                        <OverlayTrigger
+                          overlay={
+                            <Tooltip id="tooltip-disabled">Rejected</Tooltip>
+                          }
                         >
-                          <i className="far fa-trash-alt fs-3 text-white"></i>
-                        </button>
-                      </OverlayTrigger>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </Table>
-          </div>
+                          <button
+                            onClick={() => rejectedOrder(orders._id)}
+                            className="btn bg-danger p-1 rounded"
+                          >
+                            <i className="far fa-trash-alt fs-3 text-white"></i>
+                          </button>
+                        </OverlayTrigger>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </Table>
+            </div>
+          )}
         </div>
       </div>
     </div>

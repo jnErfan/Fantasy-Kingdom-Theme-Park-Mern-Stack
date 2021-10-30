@@ -11,3 +11,9 @@
 .packageStatus2 {
   font-family: monospace;
 }
+.manageSpinner {
+  padding: 100px;
+  margin-top: 100px;
+  margin-bottom: 300px;
+  cursor: wait;
+}

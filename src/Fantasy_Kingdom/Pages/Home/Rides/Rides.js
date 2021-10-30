@@ -15,7 +15,7 @@ const Rides = () => {
   const history = useHistory();
 
   useEffect(() => {
-    fetch("http://localhost:5000/ridesPackageHome")
+    fetch("https://fantasy-kingdom-server.herokuapp.com/ridesPackageHome")
       .then((res) => res.json())
       .then((data) => setRidesPackage(data));
   }, []);

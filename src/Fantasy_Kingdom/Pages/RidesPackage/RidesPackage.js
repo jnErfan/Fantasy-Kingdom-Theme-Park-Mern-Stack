@@ -17,7 +17,9 @@ const RidesPackage = () => {
   const [pageCounts, setPageCount] = useState(0);
   const size = 6;
   useEffect(() => {
-    fetch(`http://localhost:5000/pagination?page=${page}&&size=${size}`)
+    fetch(
+      `https://fantasy-kingdom-server.herokuapp.com/pagination?page=${page}&&size=${size}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setPackage(data?.ridesPackage);
@@ -25,7 +27,6 @@ const RidesPackage = () => {
         setPageCount(Math.ceil(count / size));
       });
   }, [page]);
-  console.log(ridesPackage);
   return (
     <div className="container my-5">
       {!ridesPackage.length ? (

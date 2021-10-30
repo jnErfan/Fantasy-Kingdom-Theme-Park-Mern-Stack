@@ -36,7 +36,9 @@ const Navbaar = () => {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:5000/matchPackage/${user.email}`)
+    fetch(
+      `https://fantasy-kingdom-server.herokuapp.com/matchPackage/${user.email}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setOrderQuantity(data);

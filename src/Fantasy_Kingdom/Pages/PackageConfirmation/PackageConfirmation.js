@@ -14,7 +14,7 @@ const PackageConfirmation = () => {
   const [loading, setLoading] = useState(false);
   const [alert, setAlert] = useState(false);
   useEffect(() => {
-    fetch(`http://localhost:5000/rides/${packageId}`)
+    fetch(`https://fantasy-kingdom-server.herokuapp.com/rides/${packageId}`)
       .then((res) => res.json())
       .then((data) => setPackageDetails(data));
   }, []);
@@ -24,18 +24,20 @@ const PackageConfirmation = () => {
     data.orderInfo = packageDetail;
     data.status = "Pending";
     reset();
-    axios.post("http://localhost:5000/orderInfo", data).then((result) => {
-      if (result.data.insertedId) {
-        setLoading(true);
-        setTimeout(() => {
-          setAlert(true);
+    axios
+      .post("https://fantasy-kingdom-server.herokuapp.com/orderInfo", data)
+      .then((result) => {
+        if (result.data.insertedId) {
+          setLoading(true);
           setTimeout(() => {
-            setLoading(false);
-            history.push("/myOrders");
-          }, 3000);
-        }, 2000);
-      }
-    });
+            setAlert(true);
+            setTimeout(() => {
+              setLoading(false);
+              history.push("/myOrders");
+            }, 3000);
+          }, 2000);
+        }
+      });
   };
 
   return (
