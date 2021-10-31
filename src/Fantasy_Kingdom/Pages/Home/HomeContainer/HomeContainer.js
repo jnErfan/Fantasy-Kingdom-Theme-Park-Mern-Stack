@@ -7,6 +7,7 @@ import Rides from "../Rides/Rides";
 import WaterKingdom from "../WaterKingdom/WaterKingdom";
 
 const HomeContainer = () => {
+  // All Home Page Item Container
   return (
     <div className="mb-5">
       <Banner />

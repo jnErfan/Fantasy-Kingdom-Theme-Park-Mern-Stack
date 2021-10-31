@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./Footer.css";
 
 const Footer = () => {
+  // Footer Shared Component
   return (
     <div className="footerContainer2">
       <div className="footerContainer">

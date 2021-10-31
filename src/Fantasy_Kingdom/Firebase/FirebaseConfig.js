@@ -1,3 +1,4 @@
+// Firebase Configuration
 export const firebaseConfig = {
   apiKey: "AIzaSyC1sk6BDNS_LprxrIe5CHhY48cjdpX8GK0",
   authDomain: "fantasy-kingdom-complex.firebaseapp.com",

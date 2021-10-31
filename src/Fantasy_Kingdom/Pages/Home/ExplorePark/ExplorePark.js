@@ -3,6 +3,7 @@ import { HashLink } from "react-router-hash-link";
 import "./ExplorePark.css";
 
 const ExplorePark = () => {
+  // Explore Our Park Some Slider Image
   return (
     <div className="container MainContainer" id="ExplorePark">
       <div className="exploreContainer shadow-lg">

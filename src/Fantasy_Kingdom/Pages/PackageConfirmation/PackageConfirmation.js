@@ -13,17 +13,27 @@ const PackageConfirmation = () => {
   const { user } = useAuth();
   const [loading, setLoading] = useState(false);
   const [alert, setAlert] = useState(false);
+  const { register, handleSubmit, reset } = useForm();
+
+  // Dynamic Routing Single Data Fetch
   useEffect(() => {
     fetch(`https://fantasy-kingdom-server.herokuapp.com/rides/${packageId}`)
       .then((res) => res.json())
       .then((data) => setPackageDetails(data));
   }, []);
+
+  // Destructuring
   const packageDetail = packageDetails?.[0];
-  const { register, handleSubmit, reset } = useForm();
+
+  // Get Customer Order Information With Hook Form And Send Data In Database With Axios
   const onSubmit = (data) => {
+    // Send User Order  Info
     data.orderInfo = packageDetail;
+    // Set Status Pending
     data.status = "Pending";
     reset();
+
+    // Post User Info / Order Info And Status Status In Database
     axios
       .post("https://fantasy-kingdom-server.herokuapp.com/orderInfo", data)
       .then((result) => {

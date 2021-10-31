@@ -3,6 +3,7 @@ import { Card, Col, Row } from "react-bootstrap";
 import "./WaterKingdom.css";
 
 const WaterKingdom = () => {
+  // Water Kingdom Image Gallery And Video
   return (
     <div className="container galleryContainer2" id="WaterKingdom">
       <div>

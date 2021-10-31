@@ -25,8 +25,10 @@ function App() {
     <AuthContext>
       <div className="App">
         <Router>
+          {/* NavBar  */}
           <Navbaar />
           <Switch>
+            {/* All Components Routing And Page Dynamic Title Change  */}
             <Route exact path="/">
               <RouterTitle
                 pageTitle="Fantasy Kingdom"
@@ -111,6 +113,7 @@ function App() {
               <NotFound />
             </Route>
           </Switch>
+          {/* Footer  */}
           <Footer />
         </Router>
       </div>

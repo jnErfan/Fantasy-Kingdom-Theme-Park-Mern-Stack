@@ -1,13 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import {
-  OverlayTrigger,
-  Table,
-  Tooltip,
-  Alert,
-  Badge,
-  Spinner,
-} from "react-bootstrap";
+import { OverlayTrigger, Table, Tooltip, Alert, Badge } from "react-bootstrap";
 import "./ManageAllOrders.css";
 
 const ManageAllOrders = () => {
@@ -15,6 +8,8 @@ const ManageAllOrders = () => {
   const [updateUi, setUpdateUi] = useState({});
   const [alert, setAlert] = useState(false);
   const [alertReject, setAlertReject] = useState(false);
+
+  // Get All Users Ordered Item
   useEffect(() => {
     fetch("https://fantasy-kingdom-server.herokuapp.com/allOrders")
       .then((res) => res.json())
@@ -24,6 +19,7 @@ const ManageAllOrders = () => {
       });
   }, [updateUi]);
 
+  // Dynamic Change Order Status Approved
   const approvedOrder = (id) => {
     const status = {
       status: "Approved",
@@ -45,6 +41,7 @@ const ManageAllOrders = () => {
       });
   };
 
+  // Dynamic Change Order Status Reject
   const rejectedOrder = (id) => {
     const reason = prompt("Why You Want To Reject This Order");
     if (reason === null) {

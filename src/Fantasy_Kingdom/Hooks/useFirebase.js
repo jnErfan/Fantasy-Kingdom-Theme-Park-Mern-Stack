@@ -12,6 +12,7 @@ import { useEffect, useState } from "react";
 
 FirebaseInitialize();
 
+// Method Providers
 const googleProvider = new GoogleAuthProvider();
 const facebookProvider = new FacebookAuthProvider();
 const githubProvider = new GithubAuthProvider();
@@ -21,6 +22,7 @@ const useFirebase = () => {
   const [isLoading, setIsLoading] = useState(true);
   const auth = getAuth();
 
+  // Google Sign In
   const googleLogin = () => {
     setError("");
     setIsLoading(true);
@@ -53,6 +55,7 @@ const useFirebase = () => {
       .finally(() => setIsLoading(false));
   };
 
+  // Log Out All
   const logOut = () => {
     signOut(auth)
       .then(() => {
@@ -62,6 +65,8 @@ const useFirebase = () => {
         setError(error.message);
       });
   };
+
+  // On Auth State Change. Reload Page Did't Log Out User
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -73,6 +78,7 @@ const useFirebase = () => {
     });
   }, [auth]);
 
+  // All Method Properties Return
   return {
     user,
     error,

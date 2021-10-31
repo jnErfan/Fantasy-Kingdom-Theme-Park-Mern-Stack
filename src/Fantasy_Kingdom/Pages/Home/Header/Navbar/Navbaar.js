@@ -30,6 +30,7 @@ const Navbaar = () => {
   };
   const defaultUserImage = "https://i.ibb.co/hM9DLXG/avt2.png";
 
+  // On Click Profile Popover
   const handleClick = (event) => {
     setShow(!show);
     setTarget(event.target);

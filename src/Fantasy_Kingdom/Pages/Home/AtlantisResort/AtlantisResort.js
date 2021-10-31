@@ -3,12 +3,11 @@ import { Card, Col, Row } from "react-bootstrap";
 import "./AtlantisResort.css";
 
 const AtlantisResort = () => {
+  // Atlantis Resort Image Gallery And Video
   return (
     <div className="container galleryContainer3" id="AtlantisResort">
       <div>
-        <div
-            data-aos="fade-up"
-            data-aos-duration="1000" className="mb-5">
+        <div data-aos="fade-up" data-aos-duration="1000" className="mb-5">
           <img
             width="20%"
             src="https://fantasykingdom.net/wp-content/uploads/2021/08/relogo-300x151.png"
@@ -16,9 +15,7 @@ const AtlantisResort = () => {
           />
         </div>
         <div className="fantasyGalleryContainer3 p-3">
-          <div
-            data-aos="fade-up"
-            data-aos-duration="1000">
+          <div data-aos="fade-up" data-aos-duration="1000">
             <h1 className="gallery3">Gallery</h1>
           </div>
           <div className="px-4">
@@ -47,9 +44,7 @@ const AtlantisResort = () => {
           </div>
         </div>
         <div className="videoContainer3">
-          <div
-            data-aos="fade-up"
-            data-aos-duration="1000">
+          <div data-aos="fade-up" data-aos-duration="1000">
             <h1 className="gallery3">Video</h1>
           </div>
           <div data-aos="zoom-in-down" data-aos-duration="3000" className="">

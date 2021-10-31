@@ -8,6 +8,8 @@ const Login = () => {
     useAuth();
   const history = useHistory();
   const location = useLocation();
+
+  // Redirect Page Location
   const redirect = location.state?.from || "/home";
 
   // Sending to where you were before Google Login

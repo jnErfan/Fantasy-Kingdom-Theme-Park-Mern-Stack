@@ -3,6 +3,7 @@ import { Card, Col, Row } from "react-bootstrap";
 import "./FantasyGallery.css";
 
 const FantasyGallery = () => {
+  // Fantasy Kingdom Image Gallery And Video
   return (
     <div className="container galleryContainer" id="FantasyGallery">
       <div>

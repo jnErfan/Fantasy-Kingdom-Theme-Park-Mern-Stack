@@ -8,6 +8,8 @@ const AddRides = () => {
   const [alert, setAlert] = useState(false);
   const [loading, setLoading] = useState(false);
   const { register, handleSubmit, reset } = useForm();
+
+  // Post Rides Package In Mongodb With Axios
   const onSubmit = (data) => {
     axios
       .post("https://fantasy-kingdom-server.herokuapp.com/rides", data)

@@ -15,7 +15,11 @@ const RidesPackage = () => {
   const history = useHistory();
   const [page, setPage] = useState(0);
   const [pageCounts, setPageCount] = useState(0);
+
+  // Set Par Page Showing Rides
   const size = 6;
+
+  // Fetch Limit Only Home Page Need 8 Data
   useEffect(() => {
     fetch(
       `https://fantasy-kingdom-server.herokuapp.com/pagination?page=${page}&&size=${size}`

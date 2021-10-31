@@ -14,6 +14,7 @@ const Rides = () => {
   const [ridesPackage, setRidesPackage] = useState([]);
   const history = useHistory();
 
+  // Get  limit 8 Data With Database
   useEffect(() => {
     fetch("https://fantasy-kingdom-server.herokuapp.com/ridesPackageHome")
       .then((res) => res.json())

@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 
 const Contract = () => {
   const history = useHistory();
+  // Contract Page
   return (
     <div className="container my-5">
       <div className="packageText mt-4 mb-5">

@@ -10,6 +10,7 @@ const MyOrders = () => {
   const [alertConfirmation, setAlertConfirmation] = useState(false);
   const { user } = useAuth();
 
+  // Get LogIn User All Orders
   useEffect(() => {
     fetch(
       `https://fantasy-kingdom-server.herokuapp.com/matchPackage/${user.email}`
@@ -20,6 +21,8 @@ const MyOrders = () => {
         setOrderPackage(data);
       });
   }, [orderCancel]);
+
+  // Cancel Order (Delete)
   const cancelOrder = (id) => {
     const confirmation = prompt("Drop (CANCEL) This To Cancel Confirm.");
     if (confirmation === "CANCEL") {
