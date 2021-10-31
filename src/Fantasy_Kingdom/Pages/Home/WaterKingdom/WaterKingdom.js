@@ -6,7 +6,7 @@ const WaterKingdom = () => {
   return (
     <div className="container galleryContainer2" id="WaterKingdom">
       <div>
-        <div className="mb-5">
+        <div data-aos="fade-up" data-aos-duration="1000" className="mb-5">
           <img
             width="35%"
             src="https://fantasykingdom.net/wp-content/uploads/2021/08/waterkingdom-300x122.png"
@@ -14,7 +14,7 @@ const WaterKingdom = () => {
           />
         </div>
         <div className="fantasyGalleryContainer2 p-3">
-          <div>
+          <div data-aos="fade-up" data-aos-duration="1000">
             <h1 className="gallery2">Gallery</h1>
           </div>
           <div className="px-4">
@@ -33,7 +33,7 @@ const WaterKingdom = () => {
                 "https://fantasykingdom.net/wp-content/uploads/2021/08/H09.png",
                 "https://fantasykingdom.net/wp-content/uploads/2021/08/H13.png",
               ].map((image) => (
-                <Col key={image}>
+                <Col data-aos="flip-left" data-aos-duration="3000" key={image}>
                   <Card className="mb-2 bg-transparent imageFrame2 mb-5">
                     <Card.Img variant="top galleryImage2 m-1" src={image} />
                   </Card>
@@ -43,10 +43,10 @@ const WaterKingdom = () => {
           </div>
         </div>
         <div className="videoContainer2">
-          <div>
+          <div data-aos="fade-up" data-aos-duration="1000">
             <h1 className="gallery2">Video</h1>
           </div>
-          <div className="">
+          <div data-aos="zoom-in-up" data-aos-duration="3000" className="">
             <iframe
               className="p-4 mb-4 video2"
               width="85%"

@@ -56,7 +56,9 @@ const MyOrders = () => {
         )}
         <div className="">
           <div className="orderText mt-4 mb-5">
-            <h1>My Package Orders</h1>
+            <h1 data-aos="zoom-out-up" data-aos-duration="1000">
+              My Package Orders
+            </h1>
           </div>
           <>
             {!orderPackage.length && (
@@ -65,6 +67,8 @@ const MyOrders = () => {
             <div className="row row-cols-2">
               {orderPackage.map((order) => (
                 <div
+                  data-aos="flip-left"
+                  data-aos-duration="1500"
                   className="col col-12 col-md-12 col-lg-6 d-flex justify-content-center  mb-3"
                   key={order?.orderInfo?._id}
                 >

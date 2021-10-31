@@ -7,11 +7,17 @@ const Contract = () => {
   return (
     <div className="container my-5">
       <div className="packageText mt-4 mb-5">
-        <h1>Our All Package</h1>
+        <h1 data-aos="fade-up" data-aos-duration="1000">
+          Our All Package
+        </h1>
       </div>
       <div className="">
         <div className="row row-cols-2 my-5">
-          <div className="col col-12 col-md-6 col-lg-5">
+          <div
+            data-aos="flip-left"
+            data-aos-duration="2000"
+            className="col col-12 col-md-6 col-lg-5"
+          >
             <div className="text-start">
               <h2 className="fw-bold">FANTASY KINGDOM</h2>
               <div className="text-secondary mt-5">
@@ -37,7 +43,11 @@ const Contract = () => {
               </div>
             </div>
           </div>
-          <div className="col col-12 col-md-6 col-lg-7">
+          <div
+            data-aos="flip-right"
+            data-aos-duration="2000"
+            className="col col-12 col-md-6 col-lg-7"
+          >
             <img
               className="w-100 rounded"
               src="https://i.ibb.co/jg2HLkc/Screenshot-2.png"
@@ -48,7 +58,12 @@ const Contract = () => {
       </div>
 
       <div>
-        <div className="shadow-lg p-3 rounded-3">
+        <div
+          data-aos="fade-up"
+          data-aos-anchor-placement="bottom-bottom"
+          data-aos-duration="2000"
+          className="shadow-lg p-3 rounded-3"
+        >
           <h1 className="mb-4 mt-4">Planning a Meeting or Event?</h1>
           <p className="px-5">
             <small className="text-secondary">

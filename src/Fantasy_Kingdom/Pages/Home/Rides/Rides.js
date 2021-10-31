@@ -25,8 +25,13 @@ const Rides = () => {
         <Spinner animation="border" variant="info loadingSpinner" />
       ) : (
         <div>
-          <div className="packageText">
-            <h1 className="mt-4">Our Rides Package</h1>
+          <div
+            data-aos-anchor-placement="center-bottom"
+            className="packageText"
+          >
+            <h1 data-aos="fade-up" data-aos-duration="1000" className="mt-4">
+              Our Rides Package
+            </h1>
           </div>
           <Row xs={1} md={2} lg={3} className="g-4 mt-4">
             {ridesPackage.map((ridePackage) => (
@@ -35,6 +40,8 @@ const Rides = () => {
                 key={ridePackage?._id}
               >
                 <Col
+                  data-aos="fade-up"
+                  data-aos-duration="3000"
                   onClick={() =>
                     history.push(`/packageConfirmation/${ridePackage?._id}`)
                   }

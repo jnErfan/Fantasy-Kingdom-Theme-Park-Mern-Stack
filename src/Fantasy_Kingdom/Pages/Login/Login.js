@@ -36,9 +36,14 @@ const Login = () => {
 
   return (
     <div className="container mt-5">
-      <div className="shadow-lg d-inline-block p-5 loginContainer">
+      <div
+        data-aos="fade-down"
+        data-aos-easing="linear"
+        data-aos-duration="1000"
+        className="shadow-lg d-inline-block p-5 loginContainer"
+      >
         <div className="loginText mt-4 mb-5">
-          <h1 className="">
+          <h1 data-aos="fade-up" data-aos-duration="2000" className="">
             <span style={{ color: "#FF6600" }}>LOGIN</span> WITH
           </h1>
         </div>

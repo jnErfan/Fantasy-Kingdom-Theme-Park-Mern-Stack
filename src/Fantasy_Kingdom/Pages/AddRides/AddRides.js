@@ -43,15 +43,22 @@ const AddRides = () => {
         </>
       )}
       <div>
-        <div>
+        <div data-aos="zoom-in" data-aos-duration="3000">
           <h1 className="text-end" style={{ fontFamily: "'Teko', sans-serif" }}>
             <span style={{ color: "#FF6600" }}>ADMIN</span> PANEL
           </h1>
         </div>
         <div className="d-flex justify-content-center">
-          <div className="shadow-lg p-5 mt-4 fromContainer w-75">
+          <div
+            data-aos="fade-down"
+            data-aos-easing="linear"
+            data-aos-duration="1500"
+            className="shadow-lg p-5 mt-4 fromContainer w-75"
+          >
             <div className="addPackageText mt-4 mb-5">
-              <h1>Add Rides Package</h1>
+              <h1 data-aos="zoom-out-up" data-aos-duration="1000">
+                Add Rides Package
+              </h1>
             </div>
             <div className="text-start">
               <form onSubmit={handleSubmit(onSubmit)}>

@@ -88,14 +88,16 @@ const ManageAllOrders = () => {
           </Alert>
         </div>
       )}
-      <div>
+      <div data-aos="zoom-in" data-aos-duration="3000">
         <h1 className="text-end" style={{ fontFamily: "'Teko', sans-serif" }}>
           <span style={{ color: "#FF6600" }}>ADMIN</span> PANEL
         </h1>
       </div>
       <div>
         <div className="manageOrderText mt-4 mb-5">
-          <h1>Manage All Orders </h1>
+          <h1 data-aos="zoom-out-up" data-aos-duration="1000">
+            Manage All Orders{" "}
+          </h1>
         </div>
         <div className="container">
           {!allOrder.length ? (
@@ -105,7 +107,13 @@ const ManageAllOrders = () => {
               style={{ borderRadius: "15px" }}
               className="d-flex justify-content-center mt-5 shadow-lg py-5"
             >
-              <Table bordered hover responsive="md">
+              <Table
+                data-aos="fade-up"
+                data-aos-duration="2000"
+                bordered
+                hover
+                responsive="md"
+              >
                 <thead>
                   <tr className="bg-secondary text-white">
                     <th className="px-5 py-3 border-0 fw-normal">
@@ -126,7 +134,12 @@ const ManageAllOrders = () => {
 
                 <tbody>
                   {allOrder.map((orders) => (
-                    <tr className="border-0" key={orders?._id}>
+                    <tr
+                      data-aos="fade-up"
+                      data-aos-duration="2500"
+                      className="border-0"
+                      key={orders?._id}
+                    >
                       <td className="py-3 border-0 d-flex justify-content-center">
                         <div>
                           <img

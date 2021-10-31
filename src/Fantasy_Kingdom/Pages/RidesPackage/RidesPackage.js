@@ -36,7 +36,13 @@ const RidesPackage = () => {
           {" "}
           <div>
             <div className="packageText">
-              <h1 className="mt-5">Our All Package</h1>
+              <h1
+                data-aos="zoom-out-up"
+                data-aos-duration="1000"
+                className="mt-5"
+              >
+                Our All Package
+              </h1>
             </div>
             <Row xs={1} md={2} lg={3} className="g-4 mt-4">
               {ridesPackage.map((ridePackage) => (
@@ -45,6 +51,11 @@ const RidesPackage = () => {
                   key={ridePackage?._id}
                 >
                   <Col
+                    data-aos="fade-up"
+                    data-aos-anchor-placement="top-bottom"
+                    data-aos-offset="300"
+                    data-aos-easing="ease-in-sine"
+                    data-aos-duration="1500"
                     onClick={() =>
                       history.push(`/packageConfirmation/${ridePackage?._id}`)
                     }

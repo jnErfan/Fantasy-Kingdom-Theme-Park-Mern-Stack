@@ -141,7 +141,7 @@ const Navbaar = () => {
                       onHide={() => setSmShow(false)}
                       aria-labelledby="example-modal-sizes-title-sm"
                     >
-                      <Modal.Header closeButton>
+                      <Modal.Header data-aos="flip-left" closeButton>
                         <Modal.Title id="example-modal-sizes-title-sm ">
                           <span className="fw-bold">
                             <span style={{ color: "#FF6600" }}>ADMIN</span>{" "}
@@ -149,7 +149,10 @@ const Navbaar = () => {
                           </span>
                         </Modal.Title>
                       </Modal.Header>
-                      <Modal.Body>
+                      <Modal.Body
+                        data-aos="zoom-out-left"
+                        data-aos-duration="1000"
+                      >
                         <NavLink
                           className="me-1 text-decoration-none fw-bold text-dark d-block mt-3 adminItem"
                           to="/manageAllOrders"
@@ -203,13 +206,19 @@ const Navbaar = () => {
                         containerPadding={20}
                       >
                         <Popover id="popover-contained">
-                          <Popover.Header className="px-5 border-0 bg-secondary text-center">
+                          <Popover.Header
+                            data-aos="zoom-out-down"
+                            className="px-5 border-0 bg-secondary text-center"
+                          >
                             <span className="ms-2 fs-5 fw-bold text-info">
                               {user.displayName}
                             </span>
                           </Popover.Header>
                           <Popover.Body>
-                            <div className="text-center">
+                            <div
+                              data-aos="zoom-out-down"
+                              className="text-center"
+                            >
                               <img
                                 width="100px"
                                 className="border rounded-circle ms-3"
@@ -235,24 +244,6 @@ const Navbaar = () => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-      {/*      <Navbar bg="light" expand="lg">
-        <Container fluid>
-         
-          <div>
-            <Navbar.Toggle aria-controls="navbarScroll" />
-            <Navbar.Collapse id="navbarScroll">
-              <Nav
-                
-                style={{ maxHeight: "100px" }}
-                navbarScroll
-              >
-              
-              </Nav>
-            </Navbar.Collapse>
-          </div>
-         
-        </Container>
-      </Navbar> */}
     </div>
   );
 };

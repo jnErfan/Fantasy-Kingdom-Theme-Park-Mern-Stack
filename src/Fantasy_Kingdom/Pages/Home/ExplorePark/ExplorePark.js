@@ -19,14 +19,22 @@ const ExplorePark = () => {
             <div className="carousel-inner">
               <div className="carousel-item active">
                 <div className="row row-cols-3 g-4">
-                  <div className="col col-12 col-md-4 col-lg-4">
+                  <div
+                    data-aos="flip-right"
+                    data-aos-duration="3000"
+                    className="col col-12 col-md-4 col-lg-4"
+                  >
                     <img
                       src="https://fantasykingdom.net/wp-content/uploads/2021/08/FKC.jpg"
                       className="d-block w-100 carouselImage"
                       alt="..."
                     />
                   </div>
-                  <div className="col col-12 col-md-4 col-lg-4">
+                  <div
+                    data-aos="flip-left"
+                    data-aos-duration="3000"
+                    className="col col-12 col-md-4 col-lg-4"
+                  >
                     <img
                       src="https://fantasykingdom.net/wp-content/uploads/2021/08/1585740502.jpeg"
                       className="d-block w-100 carouselImage"
@@ -34,7 +42,11 @@ const ExplorePark = () => {
                     />
                   </div>
 
-                  <div className="col col-12 col-md-4 col-lg-4">
+                  <div
+                    data-aos="flip-right"
+                    data-aos-duration="3000"
+                    className="col col-12 col-md-4 col-lg-4"
+                  >
                     <img
                       src="https://fantasykingdom.net/wp-content/uploads/2021/08/1585740742.jpeg"
                       className="d-block w-100 carouselImage"

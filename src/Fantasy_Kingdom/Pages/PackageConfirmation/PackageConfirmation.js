@@ -59,12 +59,22 @@ const PackageConfirmation = () => {
         </>
       )}
       <div>
+        <div className="bookingText mt-4 mb-5">
+          <h1 data-aos="zoom-out-down" data-aos-duration="1000">
+            Package Booking Information{" "}
+          </h1>
+        </div>
         <div>
           <h6 className="text-secondary">ID: {packageId}</h6>
         </div>
         <div className="row row-cols-2 mt-5">
           <div className="col col-12 col-md-6 col-lg-6">
-            <div className="shadow-lg p-5 cardsContainer mt-5">
+            <div
+              data-aos="fade-down"
+              data-aos-duration="2000"
+              data-aos-easing="linear"
+              className="shadow-lg p-5 cardsContainer mt-5"
+            >
               <form onSubmit={handleSubmit(onSubmit)}>
                 <FormControl
                   type="name"
@@ -99,13 +109,18 @@ const PackageConfirmation = () => {
                 <input
                   className="btn orderButton w-100"
                   type="submit"
-                  value="Package Buy Confirm"
+                  value="Package Booking Confirm"
                 />
               </form>
             </div>
           </div>
           <div className="col col-12 col-md-6 col-lg-6">
-            <div className="shadow-lg p-5 cardsContainer">
+            <div
+              data-aos="fade-up"
+              data-aos-easing="linear"
+              data-aos-duration="2000"
+              className="shadow-lg p-5 cardsContainer"
+            >
               <div className="text-start">
                 <img className="detailImg" src={packageDetail?.img} alt="" />
               </div>
