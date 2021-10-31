@@ -15,7 +15,7 @@ const AtlantisResort = () => {
           />
         </div>
         <div className="fantasyGalleryContainer3 p-3">
-          <div data-aos="fade-up" data-aos-duration="1000">
+          <div data-aos="fade-up" data-aos-duration="1000" className="mb-5">
             <h1 className="gallery3">Gallery</h1>
           </div>
           <div className="px-4">
@@ -34,8 +34,12 @@ const AtlantisResort = () => {
                 "https://fantasykingdom.net/wp-content/uploads/2021/08/1581410957.jpeg",
                 "https://fantasykingdom.net/wp-content/uploads/2021/08/1581411002.jpeg",
               ].map((image) => (
-                <Col data-aos="flip-up" data-aos-duration="3000" key={image}>
-                  <Card className="mb-2 bg-transparent imageFrame3 mb-5">
+                <Col key={image}>
+                  <Card
+                    data-aos="flip-up"
+                    data-aos-duration="3000"
+                    className="mb-2 bg-transparent imageFrame3 mb-5"
+                  >
                     <Card.Img variant="top galleryImage3 m-1" src={image} />
                   </Card>
                 </Col>

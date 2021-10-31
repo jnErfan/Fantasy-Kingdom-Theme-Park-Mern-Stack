@@ -17,7 +17,7 @@ const Banner = () => {
                     strings: [
                       "Fantasy Kingdom",
                       "Water Kingdom",
-                      "Resort Atlantis",
+                      "Atlantis Resort",
                     ],
                     autoStart: true,
                     loop: true,

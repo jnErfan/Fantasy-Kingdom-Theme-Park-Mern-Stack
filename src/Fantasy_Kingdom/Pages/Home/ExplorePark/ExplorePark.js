@@ -49,7 +49,7 @@ const ExplorePark = () => {
                     className="col col-12 col-md-4 col-lg-4"
                   >
                     <img
-                      src="https://fantasykingdom.net/wp-content/uploads/2021/08/1585740742.jpeg"
+                      src="https://fantasykingdom.net/wp-content/uploads/2021/08/1585740583.jpeg"
                       className="d-block w-100 carouselImage"
                       alt=""
                     />
@@ -60,7 +60,7 @@ const ExplorePark = () => {
                 <div className="row row-cols-3 g-4">
                   <div className="col col-12 col-md-4 col-lg-4">
                     <img
-                      src="https://fantasykingdom.net/wp-content/uploads/2021/08/1585740583.jpeg"
+                      src="https://fantasykingdom.net/wp-content/uploads/2021/08/1585740742.jpeg"
                       className="d-block w-100 carouselImage"
                       alt="..."
                     />
@@ -74,7 +74,7 @@ const ExplorePark = () => {
                   </div>
                   <div className="col col-12 col-md-4 col-lg-4">
                     <img
-                      src="https://fantasykingdom.net/wp-content/uploads/2021/08/5.jpg"
+                      src="https://i.ibb.co/ZVKS4kq/2.jpg"
                       className="d-block w-100 carouselImage"
                       alt=""
                     />

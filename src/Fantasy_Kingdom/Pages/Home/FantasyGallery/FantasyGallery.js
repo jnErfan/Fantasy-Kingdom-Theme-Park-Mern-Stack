@@ -15,7 +15,7 @@ const FantasyGallery = () => {
           />
         </div>
         <div className="fantasyGalleryContainer p-3 pb-5">
-          <div data-aos="fade-up" data-aos-duration="1000">
+          <div data-aos="fade-up" data-aos-duration="1000" className="mb-5">
             <h1 className="gallery">Gallery</h1>
           </div>
           <div className="px-4">
@@ -34,8 +34,12 @@ const FantasyGallery = () => {
                 "https://fantasykingdom.net/wp-content/uploads/2021/08/F_OOR5568-1.jpg",
                 "https://c0.wallpaperflare.com/preview/255/133/152/ride-person-sky-amusement.jpg",
               ].map((image) => (
-                <Col data-aos="flip-right" data-aos-duration="3000" key={image}>
-                  <Card className="mb-2 bg-transparent imageFrame">
+                <Col key={image}>
+                  <Card
+                    data-aos="flip-right"
+                    data-aos-duration="3000"
+                    className="mb-2 bg-transparent imageFrame"
+                  >
                     <Card.Img variant="top galleryImage m-1" src={image} />
                   </Card>
                 </Col>

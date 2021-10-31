@@ -19,7 +19,7 @@
 
 .galleryImage3:hover {
   transform: scale(2);
-  transition: 3s;
+  transition: 1500ms;
   z-index: 2;
   cursor: pointer;
 }
@@ -31,7 +31,6 @@
   border: 3px solid #dba801;
   z-index: 2;
   transform: scale(1.3);
-  transition: 2s;
   border-radius: 15px;
   overflow: hidden;
 }
