@@ -101,7 +101,7 @@ const ManageAllOrders = () => {
         </div>
         <div className="container">
           {!allOrder.length ? (
-            <Spinner animation="border" variant="info manageSpinner" />
+            <h1 className="text-secondary fw-bold mt-5">No Order</h1>
           ) : (
             <div
               style={{ borderRadius: "15px" }}

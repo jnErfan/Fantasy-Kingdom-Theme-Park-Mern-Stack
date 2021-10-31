@@ -20,7 +20,6 @@ const MyOrders = () => {
         setOrderPackage(data);
       });
   }, [orderCancel]);
-
   const cancelOrder = (id) => {
     const confirmation = prompt("Drop (CANCEL) This To Cancel Confirm.");
     if (confirmation === "CANCEL") {

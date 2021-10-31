@@ -13,10 +13,10 @@
   padding: 100px;
   margin-top: 90px;
   position: fixed;
-  cursor: wait;
+  z-index: 100;
 }
 .addAlert {
   position: fixed;
   margin-top: 130px;
-  cursor: wait;
+  z-index: 100;
 }

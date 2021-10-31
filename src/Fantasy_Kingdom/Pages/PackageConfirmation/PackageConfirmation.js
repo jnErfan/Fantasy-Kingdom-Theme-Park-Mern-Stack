@@ -51,8 +51,8 @@ const PackageConfirmation = () => {
       )}
       {alert && (
         <>
-          <div className="d-flex justify-content-center animate__animated animate__fadeOut animate__delay-3s">
-            <Alert variant="success w-50 py-5 fw-bold alert  animate__animated animate__slow animate__fadeIn">
+          <div className="d-flex justify-content-center">
+            <Alert variant="success w-50 py-5 fw-bold alertConfirm  animate__animated animate__slow animate__fadeOut animate__delay-2s">
               Order Placed Successful! <br /> Please Wait For Approved.
             </Alert>
           </div>
