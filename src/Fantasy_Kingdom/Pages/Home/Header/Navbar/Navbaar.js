@@ -49,7 +49,7 @@ const Navbaar = () => {
   return (
     <div>
       <Navbar collapseOnSelect expand="lg" bg="white" variant="light">
-        <Container fluid>
+        <Container className="">
           <Navbar.Brand href="/home">
             <img
               className="w-50"
@@ -250,18 +250,3 @@ const Navbaar = () => {
 };
 
 export default Navbaar;
-/* function Example() {
-  
-
- 
-
-  return (
-    <div ref={ref}>
-      <Button onClick={handleClick}>Holy guacamole!</Button>
-
-     
-    </div>
-  );
-}
-
-render(<Example />); */
