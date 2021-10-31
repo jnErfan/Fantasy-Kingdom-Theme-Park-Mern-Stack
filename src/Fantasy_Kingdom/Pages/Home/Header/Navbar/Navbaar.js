@@ -49,7 +49,7 @@ const Navbaar = () => {
   return (
     <div>
       <Navbar collapseOnSelect expand="lg" bg="white" variant="light">
-        <Container className="">
+        <Container fluid>
           <Navbar.Brand href="/home">
             <img
               className="w-50"
